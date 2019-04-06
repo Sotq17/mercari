@@ -18,7 +18,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|refernces|foreign_key: true|
-|item_id|integer|
+|item_id|refernces|foreign_key: true|
 |rate|integer|
 
 ### Association
@@ -138,6 +138,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |item_id|refernces|foreign_key: true|
+|image|string|
 
 ### Association
 - belongs_to :item
