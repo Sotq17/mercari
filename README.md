@@ -14,22 +14,18 @@ Things you may want to cover:
 * Database creation
 
 ## Userテーブル
-
 |Column|Type|Options|
 |------|----|-------|
-|item_id|integer|
-|review_id|integer|
-|comment_id|integer|
-
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_kana|string|null: false|
 |last_kana|string|null: false|
+
 |email|string|null: false, unique: true|
 |password|string|null: false|
+
 |phone|integer|null: false, unique: true|
 |birth|integer|
-
 |postal_cord|integer|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
@@ -46,28 +42,19 @@ Things you may want to cover:
 |sales|integer|
 |point|integer|
 
-
 ### Association
 - has_many :reviews
 - has_many :comments
 - has_many :items
 
 
-
 ## Itemテーブル
-
 |Column|Type|Options|
 |------|----|-------|
-|comment_id|integer|
-|photo_id|integer|
 |user_id|integer|
 
-|name|string|null :false|
+|name|string|index: true,null :false|
 |description|text|null :false|
-
-|genre|string|null :false|
-|subgenre|string|null :false|
-|detail|string|null :false|
 |size|string|null :false|
 |brand|string|
 |state|string|null :false|
@@ -78,19 +65,48 @@ Things you may want to cover:
 |date|string|null :false|
 
 |price|integer|null :false|
-
 |like|integer|
-
 
 ### Association
 - belongs_to :user
+- has_many :categorys,through: :item_categorys
 - has_many :comments
 - has_many :photos
 
 
+##Categoryテーブル
+|Column|Type|Options|
+|------|----|-------|
+|genre|string|null :false|
+|subgenre|string|null :false|
+|detail|string|null :false|
+
+### Association
+- has_many :items,through: :item_categorys
+
+
+## Item_categorysテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_id|refernces|foreign_key: true|
+|category_id|refernces|foreign_key: true|
+
+### Association
+- belongs_to :item
+- belongs_to :category
+
+
+##Brandテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_id|integer|
+|name|string|
+
+### Association
+- belongs_to :items
+
 
 ## Commentテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |item_id|refernces|foreign_key :true|
@@ -103,7 +119,6 @@ Things you may want to cover:
 
 
 ## Reviewテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |user_id|refernces|foreign_key: true|
@@ -112,8 +127,8 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-## Photoテーブル
 
+## Photoテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item_id|refernces|foreign_key: true|
@@ -121,8 +136,15 @@ Things you may want to cover:
 ### Association
 - belongs_to :item
 
+* Database initialization
 
+* How to run the test suite
 
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
 * Database initialization
 
 * How to run the test suite
