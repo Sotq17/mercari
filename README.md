@@ -88,7 +88,7 @@
 - has_many :categorys,through: :item_categorys
 - has_many :comments
 - has_many :photos
-- has_one :item
+- has_one :review
 
 ##Categoryテーブル
 |Column|Type|Options|
