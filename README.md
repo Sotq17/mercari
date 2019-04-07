@@ -1,26 +1,35 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
 ## Userテーブル
-
 |Column|Type|Options|
 |------|----|-------|
-|item_id|integer|
-|review_id|integer|
-|comment_id|integer|
+|nickname|string|null: false|
+|intro|text|null :false|
+|sales|integer|
+|point|integer|
 
+### Association
+- has_many :reviews
+- has_many :comments
+- has_many :items
+- has_one :profile
+- has_one :card
+
+
+## Reviewテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|refernces|foreign_key: true|
+|item_id|refernces|foreign_key: true|
+|rate|integer|
+
+### Association
+- belongs_to :user
+- belongs_to :item
+
+
+## Profileテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|refernces|foreign_key: true|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_kana|string|null: false|
@@ -29,45 +38,38 @@ Things you may want to cover:
 |password|string|null: false|
 |phone|integer|null: false, unique: true|
 |birth|integer|
-
 |postal_cord|integer|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building|string|
 
-|nickname|string|null: false|
-|intro|text|null :false|
 
-|card|integer|
+### Association
+- belongs_to :user
+
+
+## Cardテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|refernces|foreign_key: true|
+|number|integer|
 |expiration|integer|
 |cord|integer|
 
-|sales|integer|
-|point|integer|
-
 
 ### Association
-- has_many :reviews
-- has_many :comments
-- has_many :items
-
+- belongs_to :user
 
 
 ## Itemテーブル
-
 |Column|Type|Options|
 |------|----|-------|
-|comment_id|integer|
-|photo_id|integer|
 |user_id|integer|
+|brand_id|integer|
 
-|name|string|null :false|
+|name|string|index: true,null :false|
 |description|text|null :false|
-
-|genre|string|null :false|
-|subgenre|string|null :false|
-|detail|string|null :false|
 |size|string|null :false|
 |brand|string|
 |state|string|null :false|
@@ -78,19 +80,49 @@ Things you may want to cover:
 |date|string|null :false|
 
 |price|integer|null :false|
-
 |like|integer|
-
 
 ### Association
 - belongs_to :user
+- belongs_to :brand
+- has_many :categorys,through: :item_categorys
 - has_many :comments
 - has_many :photos
+- has_one :review
 
+##Categoryテーブル
+|Column|Type|Options|
+|------|----|-------|
+|genre|string|null :false|
+|subgenre|string|null :false|
+|detail|string|null :false|
+
+### Association
+- has_many :items,through: :item_categorys
+
+
+## Item_categorysテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_id|refernces|foreign_key: true|
+|category_id|refernces|foreign_key: true|
+
+### Association
+- belongs_to :item
+- belongs_to :category
+
+
+##Brandテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_id|integer|
+|name|string|
+
+### Association
+- has_many :items
 
 
 ## Commentテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |item_id|refernces|foreign_key :true|
@@ -102,33 +134,11 @@ Things you may want to cover:
 - belongs_to :user
 
 
-## Reviewテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|refernces|foreign_key: true|
-|rate|integer|
-
-### Association
-- belongs_to :user
-
 ## Photoテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |item_id|refernces|foreign_key: true|
+|image|string|
 
 ### Association
 - belongs_to :item
-
-
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
