@@ -1,0 +1,59 @@
+.exhibit__price{
+	padding: 0 0 24px;
+  &__box{
+    width: 400px;
+    height: 48px;
+  	&__left{
+  	  float: left;
+      width: 50%;
+      line-height: 48px;
+      font-weight: 600;
+  	}
+  	&__right{
+  	  float: right;
+  	  width: 50%;
+  	  height: 48px;
+  	  &__input{
+  	  	margin-top: -28px;
+  	  	float: right;
+  	  	margin-left: 10px;
+  	    text-align: right;
+  	    width: 126px;
+        height: 28px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid $gray;
+        background: $white;
+        line-height: 1.5;
+        font-size: 16px;
+  	  }
+  	}
+  }
+  &__com{
+  	padding: 24px 0;
+    border-top: 1px solid $gray;
+    height: 14px;
+    font-size: 14px;
+    &__left{
+      float: left;
+      &__2{
+      	float: left;
+        font-weight: 600;
+      }
+    }
+    &__right{
+    float: right;
+    font-size: 16px;
+      &__2{
+      	float: right;
+      	font-weight: 600;
+      	font-size: 34px;
+      }
+    }
+  }
+  &__profits{
+    padding: 24px 0;
+    border-top: 1px solid $gray;
+    height: 34px;
+  }
+}

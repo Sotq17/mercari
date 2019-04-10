@@ -1,0 +1,37 @@
+.exhibit__content{
+  width: 620px;
+	padding: 40px;
+	border-top: 1px solid $lightgray;
+  &__groups{
+  	width: 620px;
+  	height: 70px;
+    margin-right: 40px;
+
+  	&__input{
+      width: 586px;
+      margin: 8px 0 0;
+      height: 20px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid $gray;
+      background: $white;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+  }
+  &__group{
+    margin-top: 40px;
+    width: 620px;
+    height: 160px;
+    &__textarea{
+      width: 598px;
+      height: 120px;
+      margin: 8px 0 0;
+      padding: 10px;
+      border: 1px solid $gray;
+      background: $white;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+}
