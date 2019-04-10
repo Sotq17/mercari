@@ -3,7 +3,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	background-color: #f5f5f5
-	}
+}
 
 
 .header{
@@ -11,15 +11,15 @@ html, body {
 	padding: 10px 210px 10px 210px;
 	height: 100px;
 	color: black;
-		&__top{
-			position: relative;
-			height:50px;
-			&__logo{
-				width: 134px;
-				height: 36px;
-				float: left;
-				padding-top:10px;
-		  }
+	&__top{
+		position: relative;
+		height: 50px;
+		&__logo{
+			width: 134px;
+			height: 36px;
+			float: left;
+			padding-top: 10px;
+		}
 		&__search{
 			&__box{
 				position: relative;
@@ -50,7 +50,7 @@ html, body {
   }
 	&__bottom{
 		font-size: 14px;
-		height:50px;
+		height: 50px;
 		display: flex;
 		justify-content: space-between;
 		width: 100%;
@@ -86,13 +86,13 @@ html, body {
 			}
 			&__bell{
 				&__content{
-					padding-left:10px;
+					padding-left: 10px;
 				}
 			}
 			&__check{
 				padding-left: 30px;
 				&__content{
-						padding-left:10px;
+						padding-left: 10px;
 				}
 			}
 			&__mypage{
@@ -102,7 +102,7 @@ html, body {
 					padding-left: 30px;
 					&__icon{
 						border-radius: 50%;
-						padding-right:10px;
+						padding-right: 10px;
 					}
 				}
 			}
