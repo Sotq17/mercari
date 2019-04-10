@@ -5,6 +5,8 @@
 |intro|text|null :false|
 |sales|integer|
 |point|integer|
+|email|string|null: false, unique: true|
+|password|string|null: false|
 
 ### Association
 - has_many :reviews
@@ -18,7 +20,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|refernces|foreign_key: true|
-|item_id|refernces|foreign_key: true|
+|item_id|integer|
 |rate|integer|
 
 ### Association
@@ -34,8 +36,6 @@
 |last_name|string|null: false|
 |first_kana|string|null: false|
 |last_kana|string|null: false|
-|email|string|null: false, unique: true|
-|password|string|null: false|
 |phone|integer|null: false, unique: true|
 |birth|integer|
 |postal_cord|integer|null: false|
@@ -71,7 +71,6 @@
 |name|string|index: true,null :false|
 |description|text|null :false|
 |size|string|null :false|
-|brand|string|
 |state|string|null :false|
 
 |fee_side|string|null :false|
