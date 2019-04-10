@@ -1,0 +1,24 @@
+.banner
+  #imageslider.banner__slider
+    %div= image_tag 'banner-natsukashi'
+    %div= image_tag 'banner-new-life'
+    %div
+      = image_tag 'main_bg_top'
+      .banner__slider__contents
+        .banner__slider__contents__left
+          .banner__slider__contents__left__title
+            %div スマホでかんたん
+            %div フリマアプリ
+          .banner__slider__contents__left__text
+            %span
+              メルカリはスマホカメラからすぐに出品できる
+              %br>/
+              購入時も安心な独自システムのアプリです
+          .banner__slider__contents__left__icons
+            .banner__slider__contents__left__icons__apple
+              = image_tag 'app-store'
+            .banner__slider__contents__left__icons__google
+              = image_tag 'google-play'
+        .banner__slider__contents__right
+          = image_tag 'content-hand'
+    %div= image_tag 'banner-bokurano-heisei'
