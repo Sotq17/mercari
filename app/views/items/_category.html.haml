@@ -1,8 +1,8 @@
 .pickup-category__box
   %h3.pickup-category__box__title
-    %a{href: ""} 新着アイテム
+    = link_to '新着アイテム', ''
   .pickup-category__box__items
     - @items.each do |item|
       = render partial: "item", locals: { item: item }
   .pickup-category__box__all
-    %a{href: ""} 全ての商品をみる
+    = link_to '新着アイテム', ''

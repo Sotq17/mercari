@@ -1,5 +1,5 @@
 .pickup-category__box__items__item
-  %a{href: ""}
+  = link_to '' do
     .pickup-category__box__items__item__photo
       - item.photos.each do |photo|
         = image_tag photo.image

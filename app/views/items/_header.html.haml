@@ -2,7 +2,7 @@
   %header.header
     .header__top
       .header__top__logo
-        %a{href: ""}
+        = link_to '' do
           %img{alt: "mercari", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?228111635"}/
       .header__top__search
         %form.header__top__search__box
@@ -11,24 +11,24 @@
     .header__bottom
       .header__bottom__leftside
         .header__bottom__leftside__left_box
-          %a.header__bottom__leftside__left_box__content{href: ""}
+          = link_to '', class: "header__bottom__leftside__left_box__content" do
             = fa_icon ("list-ul")
             %span カテゴリから探す
         .header__bottom__leftside__right_box
-          %a.header__bottom_box__leftside__right_box__content{href: ""}
+          = link_to '', class: "header__bottom_box__leftside__right_box__content" do
             = fa_icon ("tag")
             %span ブランドから探す
       .header__bottom__rightside
         .header__bottom__rightside__bell
-          %a.header__bottom__rightside__bell__content{href: ""}
+          = link_to '', class: "header__bottom__rightside__bell__content" do
             = fa_icon("bell lg")
             %span お知らせ
         .header__bottom__rightside__check
-          %a.header__bottom__rightside__check__content{href: ""}
+          = link_to '', class: "header__bottom__rightside__check__content" do
             %span
               = fa_icon("check lg")
               %span やることリスト
         .header__bottom__rightside__mypage
-          %a.header__bottom__rightside__mypage__content{href: ""}
+          = link_to '', class: "header__bottom__rightside__mypage__content" do
             %img.header__bottom__rightside__mypage__content__icon{alt: "", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32"}/
             %div マイページ

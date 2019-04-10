@@ -95,8 +95,7 @@
   justify-content: center;
   text-decoration: none;
   &:active {
-    top: 7px;
-    box-shadow: none;
+    color: pink;
   }
   &__text{
     font-size: 20px;
