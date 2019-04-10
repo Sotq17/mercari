@@ -1,0 +1,49 @@
+.footer{
+    position: relative;
+    background: #212121;
+    color: #fff;
+    padding: 10px 210px 10px 210px;
+    h1{
+        font-size: 16px;
+    }
+    li{
+        font-size: 12px;
+    }
+    &__top{
+        display: flex;
+        justify-content: space-around;
+        font-family: Source Sans Pro;
+        padding:20px 20px 0 0;
+        li{
+            margin-top: 15px;
+            
+        }
+        &__leftbox{
+            &__logo{
+                padding-right: 10px;
+            }
+        }
+        &__rightbox{
+        }
+        &__middlebox{
+            &__left_box{
+            }
+            &__right_box{
+
+            }
+        }
+        &top__bottombox{
+        }
+
+    }
+    &__bottom{
+        &__logo{
+        }
+        &__copyright{
+            font-size: 10px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+

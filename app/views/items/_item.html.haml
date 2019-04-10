@@ -1,0 +1,17 @@
+.pickup-category__box__items__item
+  %a{href: ""}
+    .pickup-category__box__items__item__photo
+      - item.photos.each do |photo|
+        = image_tag photo.image
+    .pickup-category__box__items__item__body
+      .pickup-category__box__items__item__body__title
+        = item.name
+      .pickup-category__box__items__item__body__detail
+        .pickup-category__box__items__item__body__detail__price
+          = item.price
+          円
+        .pickup-category__box__items__item__body__detail__like
+          = fa_icon("heart-o")
+          %span= item.like
+        .pickup-category__box__items__item__body__detail__tax
+          (税込)

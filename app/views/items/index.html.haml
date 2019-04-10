@@ -1,0 +1,33 @@
+= render 'header'
+= render 'banner'
+.pickup-category
+  %h2.pickup-category__title ピックアップカテゴリー
+  = render 'category'
+  = render 'category'
+  = render 'category'
+  = render 'category'
+.pickup-category
+  %h2.pickup-category__title ピックアップブランド
+  = render 'brand'
+  = render 'brand'
+  = render 'brand'
+  = render 'brand'
+= render 'bottom-banner'
+= render 'footer'
+%a.sell_button{:href => ""}
+  %span.sell_button__text 出品
+  .sell_button__icon
+    = fa_icon("camera 3x")
+:javascript
+  $(function() {
+      $('.banner__slider').slick({
+          autoplay: true, //オートプレイ
+          infinite: true, // 無限ループ
+          autoplaySpeed: 5000, //オートプレイの切り替わり時間
+          easing: 'ease-in-out', //スライドの動きを制御
+          prevArrow: '<div class="slider-arrow slider-prev fa fa-angle-left"></div>',
+          nextArrow: '<div class="slider-arrow slider-next fa fa-angle-right"></div>',
+          dots:true,
+          dotsClass: 'slide-dots'
+      });
+  })
