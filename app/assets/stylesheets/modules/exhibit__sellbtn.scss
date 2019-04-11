@@ -1,0 +1,35 @@
+.exhibit__sellbtn{
+	height: 248px;
+	padding: 40px;
+    border-top: 1px solid #eee;
+  &__word{
+    line-height: 1.5;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  &__word2{
+     height: 42px;
+  }
+  &__red{
+    height: 48px;
+    width: 618px;
+    margin: 40px 0 0;
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+  }
+  &__gray{
+    height: 48px;
+    width: 277px;
+    text-align: center;
+    margin: 24px 170px 0 170px;
+    background: #aaa;
+    border: 1px solid #aaa;
+    color: #fff;
+    line-height: 48px;
+    font-size: 14px;
+  }
+}

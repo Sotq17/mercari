@@ -1,0 +1,18 @@
+.single__footer{
+  background-color: #EEEEEE;
+  height: 140px;
+  padding: 40px 0;
+  text-align: center;
+  display:block;
+  	&__list{
+  	  display: inline-block;
+      font-size: 12px;
+      text-decoration: none;
+  	  }
+  &__img{
+    margin: 40px 188px 0 188px;
+  }
+}
+a{
+	text-decoration: none;
+}

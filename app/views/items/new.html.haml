@@ -1,0 +1,199 @@
+.exhibit
+  %header.exhibit__header
+    %h1
+      %a{href: "/"}
+        =image_tag class: 'exhibit__header__image', alt: "mercari", src:  '//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?228111635'
+  %main.exhibit__main
+    %section.exhibit__main__information
+      %h2.exihibit__container__head
+        商品の情報を入力
+      %form.exhibit__form
+        .exhibit__upload
+          %h3.exhibit__upload__head
+            出品画像
+            %span.exhibit__upload__head__require
+              必須
+          %p.exhibit__upload__10 最大10枚までアップロードできます
+          .exhibit__upload__dropbox
+            .sell-upload-items-container
+              .sell-upload-items.have-item-0
+                %ul
+            .exhibit__upload__dropbox__items
+              %input.exhibit__upload__dropbox__items__file{:type => "file"}/
+              %pre.exhibit__upload__dropbox__items__pc
+                :preserve
+                         ドラッグ&ドロップ
+                    またはクリックしてファイルをアップロード
+        .exhibit__content
+          .exhibit__content__groups
+            %label.exhibit__upload__head
+              商品名
+              %span.exhibit__upload__head__require
+                必須
+            %div
+              %input.exhibit__content__groups__input{:placeholder => "商品名（必須  40文字まで）", :value => ""}/
+          .exhibit__content__group
+            %label.exhibit__upload__head
+              商品の説明
+              %span.exhibit__upload__head__require
+                必須
+            %textarea.exhibit__content__group__textarea{:name => "textarea-default", :placeholder => "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", :rows => "5"}
+              :preserve
+        .exhibits__contents
+          %h3.exhibit__contents__head 商品の詳細
+          .exhibits__contents__box
+            .exhibit__contents__box__groups
+              %label.exhibit__upload__head
+                カテゴリー
+                %span.exhibit__upload__head__require
+                  必須
+              %div
+                .exhibit__select
+                  %select.exhibit__select__default
+                    %option{:value => ""} ---
+                    %option{:value => ""} レディース
+                    %option{:value => ""} メンズ
+                    %option{:value => ""} ベビー・キッズ
+                    %option{:value => ""} インテリア・住まい・小物
+                    %option{:value => ""} 本・音楽・ゲーム
+                    %option{:value => ""} おもちゃ・ホビー・グッズ
+                    %option{:value => ""} コスメ・香水・美容
+                    %option{:value => ""} 家電・スマホ・カメラ
+                    %option{:value => ""} スポーツ・レジャー
+                    %option{:value => ""} ハンドメイド
+                    %option{:value => ""} チケット
+                    %option{:value => ""} 自動車・オートバイ
+                    %option{:value => ""} その他
+                  %i.fa.fa-angle-down{"aria-hidden" => "true"}
+            .exhibit__contents__box__groups__2
+              %lavel.exhibit__upload__head
+                最新の状態
+                %span.exhibit__upload__head__require 必須
+              %div
+                .exhibit__select
+                  %select.exhibit__select__default
+                    %option{:value => ""} ---
+                    %option{:value => ""} 新品、未使用
+                    %option{:value => ""} 未使用に近い
+                    %option{:value => ""} 目立った傷や汚れなし
+                    %option{:value => ""} やや傷や汚れあり
+                    %option{:value => ""} 傷や汚れあり
+                    %option{:value => ""} 全体的に状態が悪い
+                  %i.fa.fa-angle-down{"aria-hidden" => "true"}
+        .exhibit__contents
+          %h3.exhibit__contents__head 配送について
+          %a.exhibit__contents__question{:href => "/", :target => "_blank"} ?
+          .exhibit__contents__box
+            .exhibit__contents__box__groups
+              %lavel.exhibit__upload__head
+                配送料の負担
+                %span.exhibit__upload__head__require 必須
+              .exhibit__select
+                %select.exhibit__select__default
+                  %option{:value => ""} ---
+                  %option{:value => ""} 送料込み（出品者負担）
+                  %option{:value => ""} 着払い（購入者負担）
+                %i.fa.fa-angle-down{"aria-hidden" => "true"}
+            .exhibit__contents__box__groups__2
+              %lavel.exhibit__upload__head
+                発送元の地域
+                %span.exhibit__upload__head__require 必須
+              %div
+                .exhibit__select
+                  %select.exhibit__select__default
+                    %option{:value => ""} ---
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                    %option{:value => ""} 県
+                  %i.fa.fa-angle-down{"aria-hidden" => "true"}
+            .exhibit__contents__box__groups__2
+              %lavel.exhibit__upload__head
+                発送までの日数
+                %span.exhibit__upload__head__require 必須
+              %div
+                .exhibit__select
+                  %select.exhibit__select__default
+                    %option{:value => ""} ---
+                    %option{:value => ""} 1~2日で発送
+                    %option{:value => ""} 2~3日で発送
+                    %option{:value => ""} 4~7日で発送
+                  %i.fa.fa-angle-down{"aria-hidden" => "true"}
+        .exhibit__contents.sel
+          %h3.exhibit__contents__head 販売価格(300~350)
+          %a.exhibit__contents__question{:href => "/", :target => "_blank"} ?
+          .exhibit__contents__box
+            %ul.exhibit__contents__box__price
+              %li.exhibit__price
+                .exhibit__price__box
+                  %lavel.exhibit__price__box__left
+                    価格
+                    %span.exhibit__upload__head__require 必須
+                  .exhibit__price__box__right
+                    ¥
+                    %div
+                      %input.exhibit__price__box__right__input{:name => "value", :placeholder => "例）300", :value => ""}/
+                  #exhibits__price
+                    %li.exhibit__price__com
+                      .exhibit__price__com__left
+                        販売手数料(10%)
+                      .exhibit__price__com__right
+                        \-
+                    %li.exhibit__price__profits
+                      .exhibit__price__com__left__2
+                        販売利益
+                      .exhibit__price__com__right__2
+                        \-
+        .exhibit__sellbtn
+          %div
+            %p.exhibit__sellbtn__word
+              = link_to '禁止されている出品', 'http://google.co.jp'
+              、
+              = link_to '行為', 'http://google.co.jp'
+            %p.exhibit__sellbtn__word
+              またブランド品でシリアルナンバー等がある場合はご記載ください
+              = link_to '偽ブランドの販売', 'http://google.co.jp'
+              %br は犯罪であり処罰される可能性があります。
+            %p.exhibit__sellbtn__word
+              また出品をもちまして、
+              = link_to '加盟店規約に同意したことになります。','http://google.co.jp'
+          %button.exhibit__sellbtn__red{:type => "submit"}出品する
+          %div
+            %button.exhibit__sellbtn__gray{:onclick => "location.href='/'", :type => "button"}もどる
+        = render 'exhibit@footer'
