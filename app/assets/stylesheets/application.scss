@@ -1,15 +1,16 @@
 @import "./reset";
 @import "./variable";
 @import "font-awesome";
-@import "header";
-@import "footer";
-@import "top_page";
-@import "banner";
-@import "bottom-banner";
+@import "modules/header";
+@import "modules/footer";
+@import "modules/top_page";
+@import "modules/banner";
+@import "modules/bottom-banner";
 @import "modules/exhibit__content";
 @import "modules/exhibit__moredetaile";
 @import "modules/exhibit__photo";
 @import "modules/exhibit__price";
 @import "modules/exhibit__sellbtn";
 @import "modules/single__footer";
+@import "modules/search_result";
 
