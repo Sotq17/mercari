@@ -20,7 +20,3 @@
 # Ignore Byebug command history file.
 .byebug_history
 config/secrets.yml
-
-app/views/items/erb/_banner.html.erb
-
-*.erb
