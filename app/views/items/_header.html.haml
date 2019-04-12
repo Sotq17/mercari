@@ -2,12 +2,13 @@
   %header.header
     .header__top
       .header__top__logo
-        = link_to '' do
+        = link_to root_path do
           %img{alt: "mercari", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?228111635"}/
       .header__top__search
-        %form.header__top__search__box
-          %input.header__top__search__box__input{placeholder: "何かお探しですか？", type: "search"}/
+        = form_tag(search_items_path, method: :get, class: "header__top__search__box") do
+          %input.header__top__search__box__input{name: "keyword", placeholder: "何かお探しですか？", type: "search"}/
           %button.header__top__search__box__submit{type: "submit"}= fa_icon ("search lg")
+          %form{"accept-charset" => "utf-8", :action => "/", :method => "get"}
     .header__bottom
       .header__bottom__leftside
         .header__bottom__leftside__left_box
@@ -32,3 +33,4 @@
           = link_to '', class: "header__bottom__rightside__mypage__content" do
             %img.header__bottom__rightside__mypage__content__icon{alt: "", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32"}/
             %div マイページ
+

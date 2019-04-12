@@ -1,0 +1,65 @@
+.result{
+	padding:40px 210px 80px;
+	color: #333333;
+	&__left{
+		background-color: white;
+		width: 300px;
+	}
+	&__right{
+		padding-left: 300px;
+		&__title{
+			font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+			padding-left:15px;
+			&__result{
+				font-size:22px;
+			}
+			&__description{
+				padding-top:16px;
+				font-size: 14px;
+			}
+			&__category{
+				padding-top:20px;
+				font-size: 22px;
+				font-weight: bold;
+			}
+		}
+		a{
+			color: #333333;
+  		text-decoration: none;
+  	}
+		&__items{
+			display: flex;
+			flex-wrap: wrap;
+			&__item{
+				padding:15px 0 0 15px;
+				&__photo{
+					background-color: white;
+					img{
+						height: 160px;
+						width: 160px;
+					}
+				}
+				&__body{
+					background-color: white;
+					padding: 16px;
+					&__title{
+						font-size: 16px;
+					}
+					&__detail{
+						margin: 8px 0 0;
+						&__price{
+							font-size: 20px;
+						}
+						&__like{
+							font-size: 16px;
+							float: right;
+						}
+						&__tax{
+							font-size: 10px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
