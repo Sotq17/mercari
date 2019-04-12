@@ -1,7 +1,7 @@
 .pickup-category__box__items__item
   = link_to '' do
     .pickup-category__box__items__item__photo
-      - item.photos.each do |photo|
+      - item.photos.first(1).each do |photo|
         = image_tag photo.image
     .pickup-category__box__items__item__body
       .pickup-category__box__items__item__body__title

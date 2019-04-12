@@ -14,13 +14,13 @@
   = render 'brand'
 = render 'bottom-banner'
 = render 'footer'
-= link_to '',class:"sell_button" do
+= link_to new_item_path,class:"sell_button" do
   %span.sell_button__text 出品
   .sell_button__icon
     = fa_icon("camera 3x")
 :javascript
   $(function() {
-      $('.banner__slider').slick({
+      $('.banner__slider').not('.slick-initialized').slick({
         autoplay: true, //オートプレイ
         infinite: true, // 無限ループ
         autoplaySpeed: 5000, //オートプレイの切り替わり時間

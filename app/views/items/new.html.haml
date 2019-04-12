@@ -177,20 +177,20 @@
                         販売利益
                       .exhibit__price__com__right__2
                         \-
-        .exhibit__sellbtn
-          %div
-            %p.exhibit__sellbtn__word
-              = link_to '禁止されている出品', 'http://google.co.jp'
-              、
-              = link_to '行為', 'http://google.co.jp'
-            %p.exhibit__sellbtn__word
-              またブランド品でシリアルナンバー等がある場合はご記載ください
-              = link_to '偽ブランドの販売', 'http://google.co.jp'
-              %br は犯罪であり処罰される可能性があります。
-            %p.exhibit__sellbtn__word
-              また出品をもちまして、
-              = link_to '加盟店規約に同意したことになります。','http://google.co.jp'
-          %button.exhibit__sellbtn__red{:type => "submit"}出品する
-          %div
-            %button.exhibit__sellbtn__gray{:onclick => "location.href='/'", :type => "button"}もどる
-        = render 'exhibit@footer'
+            .exhibit__sellbtn
+              %div
+                %p.exhibit__sellbtn__word
+                  = link_to '禁止されている出品', 'http://google.co.jp'
+                  、
+                  = link_to '行為', 'http://google.co.jp'
+                %p.exhibit__sellbtn__word
+                  またブランド品でシリアルナンバー等がある場合はご記載ください
+                  = link_to '偽ブランドの販売', 'http://google.co.jp'
+                  %br は犯罪であり処罰される可能性があります。
+                %p.exhibit__sellbtn__word
+                  また出品をもちまして、
+                  = link_to '加盟店規約に同意したことになります。','http://google.co.jp'
+              %button.exhibit__sellbtn__red{:type => "submit"}出品する
+              %div
+                %button.exhibit__sellbtn__gray{:onclick => "location.href='/'", :type => "button"}もどる
+            = render 'exhibit@footer'

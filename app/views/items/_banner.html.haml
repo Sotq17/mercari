@@ -1,9 +1,9 @@
 .banner
   #imageslider.banner__slider
-    %div= image_tag 'banner-natsukashi'
-    %div= image_tag 'banner-new-life'
+    %div= image_tag asset_path('banner-natsukashi')
+    %div= image_tag asset_path('banner-new-life')
     %div
-      = image_tag 'main_bg_top'
+      = image_tag asset_path('main_bg_top')
       .banner__slider__contents
         .banner__slider__contents__left
           .banner__slider__contents__left__title
@@ -16,9 +16,9 @@
               購入時も安心な独自システムのアプリです
           .banner__slider__contents__left__icons
             .banner__slider__contents__left__icons__apple
-              = image_tag 'app-store'
+              = image_tag asset_path('app-store')
             .banner__slider__contents__left__icons__google
-              = image_tag 'google-play'
+              = image_tag asset_path('google-play')
         .banner__slider__contents__right
-          = image_tag 'content-hand'
-    %div= image_tag 'banner-bokurano-heisei'
+          = image_tag asset_path('content-hand')
+    %div= image_tag asset_path('banner-bokurano-heisei')
