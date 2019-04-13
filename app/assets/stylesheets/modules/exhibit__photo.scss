@@ -2,7 +2,6 @@
 	padding:0 0 220px;
 	background-color: #EEEEEE;
   display: block;
-  height: 1930px;
   &__header{
   	height:  128px;
   	text-align: center;
@@ -13,9 +12,9 @@
   	}
   }
   .exhibit__main{
-  	height: 2016px;
+  	height: 2030px;
   	&__information{
-      height: 2016px;
+      height: 2280px;
   		width: 700px;
   		margin: 0 auto;
   		background-color: $white;
@@ -28,7 +27,7 @@
   	    }
     	.exhibit__form{
     		border-top: 1px solid $lightgray;
-        height: 1918px;
+        height: 2030px;
     	  .exhibit__upload{
     	  	padding: 40px;
     	  	margin-right: 80px;

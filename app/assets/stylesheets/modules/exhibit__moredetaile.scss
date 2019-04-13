@@ -1,6 +1,6 @@
 .exhibit__contents{
   width: 620px;
-  height: 290px;
+  height: 410px;
 	padding: 40px;
 	border-top: 1px solid $lightgray;
   clear: both;
@@ -26,22 +26,28 @@
   &__box{
   	float: right;
     width: 400px;
-    height: 346px;
+    height: 400px;
+    &__groups__2{
+      margin: 40px 0 0;
+    }
     .exhibit__select{
       margin: 8px 0 0;
       position: relative;
       background: $white;
       &__default{
+        overflow: hidden;
+        background-image: url(https://doyouv.com/skin/frontend/base/default/onestepcheckout/images/icon_arrow.svg);
+        background-repeat: no-repeat;
+        background-size: 12px 10px;
+        background-position: right 10px center;
         -webkit-appearance: none;
         -moz-appearance: none;
         width: 400px;
-        position: relative;
         z-index: 2;
         height: 48px;
         padding: 0 16px;
         border-radius: 4px;
         border: 1px solid $gray;
-        background: 0;
         font-size: 16px;
         line-height: 1.5;
         cursor: pointer;
@@ -71,19 +77,16 @@
         line-height: 1;
       }
     }
-    .exhibit__contents__box__groups__2{
-          margin: 40px 0 0;
-    }
 
   }
 }
 .exhibits__contents{
-  height: 180px;
+  height: 290px;
   padding: 40px;
   border-top: 1px solid $lightgray;
   clear: both;
   &__box{
-    height: 180px;
+    height: 290px;
     float: right;
     width: 400px;
     .exhibit__select{
@@ -123,7 +126,7 @@
 }
   .exhibit__contents.sel{
     padding: 40px;
-    border-top: 1px solid $white;
+    border-top: 1px solid $lightgray;
     height: 218px;
 
   }
