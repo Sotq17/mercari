@@ -8,34 +8,11 @@ class Item < ApplicationRecord
     has_one    :review
 
     accepts_nested_attributes_for :photos
-end
-
-class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :region, primary_key: :region_id
-end
-
-class Item < ApplicationRecord
-  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :way, primary_key: :method_id
-end
-
-class Item < ApplicationRecord
-  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :fee_side, primary_key: :fee_side_id
-end
-
-class Item < ApplicationRecord
-  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :day, primary_key: :date_id
-end
-
-class Item < ApplicationRecord
-  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :state, primary_key: :state_id
-end
-
-class Item < ApplicationRecord
-  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :size, primary_key: :size_id
 end
