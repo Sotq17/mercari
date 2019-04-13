@@ -1,5 +1,4 @@
 .single__footer{
-  background-color: #EEEEEE;
   height: 140px;
   padding: 40px 0;
   text-align: center;
@@ -15,4 +14,7 @@
 }
 a{
 	text-decoration: none;
+}
+p{
+  color: $gray;
 }
