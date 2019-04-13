@@ -2,7 +2,7 @@
   = link_to '' do
     .pickup-category__box__items__item__photo
       - item.photos.first(1).each do |photo|
-        = image_tag photo.image
+        = image_tag photo.image.url
     .pickup-category__box__items__item__body
       .pickup-category__box__items__item__body__title
         = item.name
