@@ -2,28 +2,48 @@
   .result__left
   .result__right
     %h3.result__right__title
-      -if @items.count == @all_item.count
+      -if @items.count > 0
+        = "検索結果 #{@items.count}件"
+        .result__right__items
+          - @items.each do |item|
+            .result__right__items__item
+              = link_to "/items/#{item.id}", method: :get do
+                .result__right__items__item__photo
+                  - item.photos.first(1).each do |photo|
+                    = image_tag photo.image
+                .result__right__items__item__body
+                  .result__right__items__item__body__title
+                    = item.name
+                  .result__right__items__item__body__detail
+                    .result__right__items__item__body__detail__price
+                      = item.price
+                      円
+                    .result__right__items__item__body__detail__like
+                      = fa_icon("heart-o")
+                      %span= item.like
+                    .result__right__items__item__body__detail__tax
+                      (税込)
+        = paginate (@items)
+      -else
         .result__right__title__result 検索結果 0件
         .result__right__title__description 該当する商品が見つかりません。商品は毎日増えていますので、これからの出品に期待してください。
         .result__right__title__category 新着商品
-      -else
-        = "検索結果 #{@items.count}件"
-    .result__right__items
-      - @items.each do |item|
-        .result__right__items__item
-          = link_to '' do
-            .result__right__items__item__photo
-              - item.photos.first(1).each do |photo|
-                = image_tag photo.image
-            .result__right__items__item__body
-              .result__right__items__item__body__title
-                = item.name
-              .result__right__items__item__body__detail
-                .result__right__items__item__body__detail__price
-                  = item.price
-                  円
-                .result__right__items__item__body__detail__like
-                  = fa_icon("heart-o")
-                  %span= item.like
-                .result__right__items__item__body__detail__tax
-                  (税込)
+        .result__right__items
+          - @all_items.each do |all_item|
+            .result__right__items__item
+              = link_to "/items/#{all_item.id}", method: :get do
+                .result__right__items__item__photo
+                  - all_item.photos.first(1).each do |photo|
+                    = image_tag photo.image
+                .result__right__items__item__body
+                  .result__right__items__item__body__title
+                    = all_item.name
+                  .result__right__items__item__body__detail
+                    .result__right__items__item__body__detail__price
+                      = all_item.price
+                      円
+                    .result__right__items__item__body__detail__like
+                      = fa_icon("heart-o")
+                      %span= all_item.like
+                    .result__right__items__item__body__detail__tax
+                      (税込)

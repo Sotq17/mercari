@@ -1,0 +1,64 @@
+.user_pickup-category__box{
+  padding: 0 370px;
+  &__title{
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 20px 0;
+    a{
+      color: #0099e8;
+      text-decoration: none;
+    }
+    a:hover{
+      opacity: 0.5;
+      text-decoration: underline;
+    }
+  }
+  &__items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    a{
+      color: black;
+      text-decoration: none;
+    }
+    &__item{
+      height:330px;
+      width:220px;
+      padding-bottom: 15px;
+      &__photo{
+        background-color: white;
+        img{
+          height: 220px;
+          width: 220px;
+        }
+
+      }
+      &__body{
+        background-color: white;
+        padding: 16px;
+        &__title{
+          font-size: 16px;
+          width:180px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        &__detail{
+          margin: 8px 0 0;
+          &__price{
+            font-size: 20px;
+          }
+          &__like{
+            font-size: 16px;
+            float: right;
+          }
+          &__tax{
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,16 +1,24 @@
 class ItemsController < ApplicationController
+	def index
+		@items = Item.order("id DESC").limit(4).includes(:photos)
+	end
 
-    def index
-        @items = Item.order("id ASC").limit(4).includes(:photos)
-    end
+	def search
+		@items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").order("id DESC").page(params[:page]).per(15)
+			if params[:keyword] == ""
+				redirect_to '/items/search?utf8=✓&keyword=+++'
+			end
+			if @items.count == 0
+				@all_items = Item.limit(25).order("id DESC")
+			end
+		end
 
-    def search
-				@items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(24).order("id ASC")
-				@all_item= Item.all
-				if @items.count == 0
-        	@items = Item.all.order("id ASC").limit(24)
-        end
-    end
+		def show
+			@item = Item.find(params[:id])
+			@items = Item.order("id DESC").limit(6).includes(:photos)
+			#User_id/category_idなどが取れたら別途実装します。
+			#とりあえず新着アイテムで実装します
+		end
 
     def new
     	@item = Item.new
@@ -28,6 +36,6 @@ class ItemsController < ApplicationController
 
     private
     def create_params
-        params.require(:item).permit(:name, :description, :price, :size_id, :state_id, :fee_side_id, :method_id, :region_id, :date_id, photos_attributes: [:id, :image, :_destroy])
+        params.require(:item).permit(:name, :description, :price, :size_id, :state_id, :fee_side_id, :way_id, :region_id, :day_id, photos_attributes: [:id, :image, :_destroy])
     end
 end

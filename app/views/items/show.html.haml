@@ -1,0 +1,98 @@
+= render 'header'
+
+.individual
+	.individual__items
+		.individual__items__item
+			.individual__items__item__name
+				=@item.name
+			.individual__items__item__top
+				.individual__items__item__top__image
+					- @item.photos.each do |photo|
+						= image_tag photo.image.url
+				.individual__items__item__top__detail
+					%table
+						%tr
+							%th 出品者
+							%td=@item.size.name
+						%tr
+							%th カテゴリー
+							%td=@item.size.name
+						%tr
+							%th ブランド
+							%td=@item.size.name
+						%tr
+							%th 商品のサイズ
+							%td=@item.size.name
+						%tr
+							%th 商品の状態
+							%td=@item.state.name
+						%tr
+							%th 配送料の負担
+							%td=@item.fee_side.name
+						%tr
+							%th 配送の方法
+							%td=@item.way.name
+						%tr
+							%th 配送元地域
+							%td=@item.region.name
+						%tr
+							%th 発送日の目安
+							%td=@item.day.name
+
+			.individual__items__item__middle
+				.individual__items__item__middle__price
+					= number_to_currency(@item.price, unit: "￥", strip_insignificant_zeros: true)
+					%span.individual__items__item__middle__price__tax
+						(税込)
+					%span.individual__items__item__middle__price__text
+						=@item.fee_side.name
+				.individual__items__item__middle__purchase
+					-# -if current_user.id == @item.user_id
+					-# 	= link_to '編集画面に進む', ''
+					-# - else
+					.individual__items__item__middle__purchase__button
+						= link_to '購入画面に進む', ''
+
+			.individual__items__item__bottom
+				.individual__items__item__bottom__description
+					=@item.description
+	.individual__items__comment
+		.individual__items__comment__contents
+			.individual__items__comment__contents__text
+				相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+			= form_for "" do |f|
+				-# = f.label :name, "名前"
+				= f.text_area :name , class: 'individual__items__comment__contents__text__comment'
+				= f.submit "Send", class: 'individual__items__comment__contents__text__btn'
+				-# 現段階ではエラーになります（コメントテーブル作成、紐付け後可能）
+
+	.individual__items__move
+		.individual__items__move__previous
+			- if @item.previous.present?
+				= link_to item_path(@item.previous.id) do
+					= fa_icon("chevron-left")
+				= link_to "#{@item.previous.name}", item_path(@item.previous.id)
+		.individual__items__move__next
+			- if @item.next.present?
+				= link_to "#{ @item.next.name}",item_path(@item.next.id)
+				= link_to item_path(@item.next.id) do
+					= fa_icon("chevron-right")
+
+	.individual__items__social
+		.individual__items__social__box
+			.individual__items__social__box__fb
+				=link_to "https://www.facebook.com/" do
+					= fa_icon("facebook-square 3x")
+			.individual__items__social__box__twitter
+				=link_to "https://twitter.com/" do
+					= fa_icon("twitter-square 3x")
+			.individual__items__social__box__pinterest
+				=link_to "https://www.pinterest.jp/" do
+					= fa_icon("pinterest-square 3x")
+
+= render 'show_other_items'
+= render 'show_other_items'
+-# #User_id/category_idなどが取れたら別途実装します。
+-# #とりあえず新着アイテムで実装します
+= render 'bottom-banner'
+= render 'footer'
