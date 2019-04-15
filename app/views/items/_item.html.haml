@@ -1,5 +1,5 @@
 .pickup-category__box__items__item
-  = link_to '' do
+  = link_to "/items/#{item.id}", method: :get do
     .pickup-category__box__items__item__photo
       - item.photos.first(1).each do |photo|
         = image_tag photo.image.url
