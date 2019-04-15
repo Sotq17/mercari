@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action  :item_find, except: [:index, :search, :new, :update, :create]
+
 	def index
 		@items = Item.order("id DESC").limit(4).includes(:photos)
 	end
@@ -11,46 +13,47 @@ class ItemsController < ApplicationController
 			if @items.count == 0
 				@all_items = Item.limit(25).order("id DESC")
 			end
-		end
+	end
 
-		def show
-			@item = Item.find(params[:id])
-			@items = Item.order("id DESC").limit(6).includes(:photos)
-			#User_id/category_idなどが取れたら別途実装します。
-			#とりあえず新着アイテムで実装します
-		end
+	def show
+		@items = Item.order("id DESC").limit(6).includes(:photos)
+		#User_id/category_idなどが取れたら別途実装します。
+		#とりあえず新着アイテムで実装します
+	end
 
-    def new
-    	@item = Item.new
-        @item.photos.build
-    end
+  def new
+  	@item = Item.new
+    @item.photos.build
+  end
 
-    def create
-    	@item = Item.new(create_params)
-        if @item.save
-          redirect_to controller: :items, action: :index
-        else
-          redirect_to controller: :items, action: :new
-        end
-    end
+  def create
+  	@item = Item.new(create_params)
+      if @item.save
+        redirect_to controller: :items, action: :index
+      else
+        redirect_to controller: :items, action: :new
+      end
+  end
 
-    def edit
-      @item = Item.find(params[:id])
-    end
+  def edit
+    @item = Item.find(params[:id])
+  end
 
 
-    def update
-      item = Item.find(params[:id])
-      item.update(create_params)
-      redirect_to controller: :items, action: :index
-    end
+  def update
+    item.update(create_params)
+    redirect_to controller: :items, action: :index
+  end
 
-    def buy
-      @item = Item.find(params[:id])
-    end
+  def buy
+  end
 
-    private
-    def create_params
-        params.require(:item).permit(:name, :description, :price, :size_id, :state_id, :fee_side_id, :way_id, :region_id, :day_id, photos_attributes: [:id, :image, :_destroy])
-    end
+  def item_find
+    @item = Item.find(params[:id])
+  end
+
+  private
+  def create_params
+      params.require(:item).permit(:name, :description, :price, :size_id, :state_id, :fee_side_id, :way_id, :region_id, :day_id, photos_attributes: [:id, :image, :_destroy])
+  end
 end
