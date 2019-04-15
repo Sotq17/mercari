@@ -29,9 +29,9 @@ class ItemsController < ApplicationController
   def create
   	@item = Item.new(create_params)
       if @item.save
-        redirect_to '/'
+        redirect_to root_path
       else
-        redirect_to '/items/new'
+        redirect_to new_item_path
       end
   end
 
@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
 
   def update
     @item.update(create_params)
-    redirect_to '/'
+      redirect_to root_path
   end
 
   def buy
