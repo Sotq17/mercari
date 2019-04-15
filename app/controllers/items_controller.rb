@@ -34,6 +34,21 @@ class ItemsController < ApplicationController
         end
     end
 
+    def edit
+      @item = Item.find(params[:id])
+    end
+
+
+    def update
+      item = Item.find(params[:id])
+      item.update(create_params)
+      redirect_to controller: :items, action: :index
+    end
+
+    def buy
+      @item = Item.find(params[:id])
+    end
+
     private
     def create_params
         params.require(:item).permit(:name, :description, :price, :size_id, :state_id, :fee_side_id, :way_id, :region_id, :day_id, photos_attributes: [:id, :image, :_destroy])
