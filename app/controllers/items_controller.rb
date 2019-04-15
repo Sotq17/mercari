@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action  :item_find, except: [:index, :search, :new, :update, :create]
+  before_action  :item_find, except: [:index, :search, :new, :create]
 
 	def index
 		@items = Item.order("id DESC").limit(4).includes(:photos)
@@ -29,9 +29,9 @@ class ItemsController < ApplicationController
   def create
   	@item = Item.new(create_params)
       if @item.save
-        redirect_to controller: :items, action: :index
+        redirect_to '/'
       else
-        redirect_to controller: :items, action: :new
+        redirect_to '/items/new'
       end
   end
 
@@ -41,8 +41,8 @@ class ItemsController < ApplicationController
 
 
   def update
-    item.update(create_params)
-    redirect_to controller: :items, action: :index
+    @item.update(create_params)
+    redirect_to '/'
   end
 
   def buy
