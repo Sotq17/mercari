@@ -9,10 +9,17 @@ class Item < ApplicationRecord
 
     accepts_nested_attributes_for :photos
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :region, primary_key: :region_id
-  belongs_to_active_hash :way, primary_key: :method_id
-  belongs_to_active_hash :fee_side, primary_key: :fee_side_id
-  belongs_to_active_hash :day, primary_key: :date_id
-  belongs_to_active_hash :state, primary_key: :state_id
-  belongs_to_active_hash :size, primary_key: :size_id
+  belongs_to_active_hash :region
+  belongs_to_active_hash :way
+  belongs_to_active_hash :fee_side
+  belongs_to_active_hash :day
+  belongs_to_active_hash :state
+  belongs_to_active_hash :size
+
+  def previous
+    Item.where("id < ?", self.id).order("id DESC").first
+  end
+  def next
+    Item.where("id > ?", self.id).order("id ASC").first
+  end
 end

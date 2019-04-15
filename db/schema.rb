@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190412061505) do
+ActiveRecord::Schema.define(version: 20190413123646) do
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                      null: false
@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20190412061505) do
     t.integer  "size_id",                   null: false
     t.integer  "state_id",                  null: false
     t.integer  "fee_side_id",               null: false
-    t.integer  "method_id",                 null: false
     t.integer  "region_id",                 null: false
-    t.integer  "date_id",                   null: false
+    t.integer  "way_id",                    null: false
+    t.integer  "day_id",                    null: false
     t.index ["name"], name: "index_items_on_name", using: :btree
   end
 
