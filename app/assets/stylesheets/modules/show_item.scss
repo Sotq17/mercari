@@ -15,12 +15,30 @@
 			&__top{
 				display:flex;
 				justify-content: space-around;
-				&__image{
-					height: 300px;
-					width: 300px;
-					img{
-						height: 213px;
-						width: 213px;
+				&__imagebox{
+					&__image{
+						height: 300px;
+						max-width: 300px;
+						img{
+							height: 300px;
+							width: 100%;
+						}
+					}
+
+					&__image-thumb{
+						width: 300px; margin: 0 auto;
+						box-sizing: inherit;
+						img{
+							opacity: 0.5;
+							outline-style: none;
+							width: 25%;
+							height: auto;
+						}
+						.slick-list.draggable{
+							display: flex;
+							flex-wrap: wrap;
+							max-height: 150px;
+						}
 					}
 				}
 				&__detail{
@@ -45,7 +63,7 @@
 						background: #fff;
 					}
 				}
-		}
+			}
 			&__middle{
 				&__price{
 					margin:24px 0 0 ;
@@ -62,14 +80,10 @@
 					}
 				}
 				&__purchase{
-					// height: 60px;
-					// line-height: 60px;
 					&__button{
-						a{
-							color: #fff;
-							text-decoration: none;
-							font-size:24px;
-						}
+						color: #fff;
+						text-decoration: none;
+						font-size:24px;
 						display: block;
 						height: 56px;
 						margin: 16px 0 0;
@@ -93,14 +107,12 @@
 			background-color: white;
 			display: flex;
 			align-items: center;
-
 			&__contents{
 				padding: 24px;
 				&__text{
 					padding: 8px;
 					font-size: 14px;
 					background: #fff6de;
-
 					&__comment{
 						display: block;
 						width: 100%;
@@ -161,7 +173,6 @@
 				align-items: center;
 			}
 		}
-
 		&__social{
 			margin: 24px auto;
 			padding: 50px 0;
@@ -191,8 +202,4 @@
 			}
 		}
 	}
-}
-
-.my-fb-color{
-	color:blue;
 }
