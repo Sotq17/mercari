@@ -2,13 +2,18 @@
 
 .individual
 	.individual__items
-		.individual__items__item
+		.individual__items__item__box
 			.individual__items__item__name
 				=@item.name
 			.individual__items__item__top
-				.individual__items__item__top__image
-					- @item.photos.each do |photo|
-						= image_tag photo.image.url
+				.individual__items__item__top__imagebox
+					.individual__items__item__top__imagebox__image
+						- @item.photos.each do |photo|
+							= image_tag photo.image.url, style: opacity=1
+					.individual__items__item__top__imagebox__image-thumb
+						-if @item.photos.count > 1
+							- @item.photos.each do |photo|
+								= image_tag photo.image.url
 				.individual__items__item__top__detail
 					%table
 						%tr
@@ -50,8 +55,7 @@
 					-# -if current_user.id == @item.user_id
 					-# 	= link_to '編集画面に進む', ''
 					-# - else
-					.individual__items__item__middle__purchase__button
-						= link_to '購入画面に進む', ''
+					= link_to '購入画面に進む', '',class: 'individual__items__item__middle__purchase__button'
 
 			.individual__items__item__bottom
 				.individual__items__item__bottom__description
@@ -96,3 +100,29 @@
 -# #とりあえず新着アイテムで実装します
 = render 'bottom-banner'
 = render 'footer'
+
+:javascript
+	$('.individual__items__item__top__imagebox__image').slick({
+		arrows: false, //矢印非表示
+		draggable: false, //ドラッグ操作の無効化
+		fade:true,
+	});
+
+	$('.individual__items__item__top__imagebox__image-thumb').slick({
+		slidesToShow: 10, //表示するスライドの数
+		focusOnSelect: true, //フォーカスの有効化
+		asNavFor: '.individual__items__item__top__imagebox__image', //ナビゲーション
+		variableWidth:true,
+	});
+		$('.slick-list.draggable').children().on( 'mouseover', 'img', function() {
+		$(this).click()
+		$(this).css('opacity', 1);
+		$(this).siblings().css('opacity', 0.5);
+	});
+
+	$('.slick-list.draggable').children().each(function () {
+		var num = $(this).find('img').length;
+		if(num>=5){
+			$(this).find('img').css('width','20%');
+		}
+	});
