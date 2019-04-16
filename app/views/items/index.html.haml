@@ -30,4 +30,7 @@
         dots:true,
         dotsClass: 'slide-dots'
       });
+      $('.slide-dots').on( 'mouseover', 'li', function() {
+      $(this).click();
+      } );
   })
