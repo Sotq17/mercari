@@ -1,0 +1,11 @@
+$(function(){
+  $(".individual22222").click(function(e){
+  	e.preventDefault();
+    $(".delete").fadeIn(500);
+    $(".individualblack").fadeIn(500);
+  });
+  $(".delete__item__button__box1").click(function(){
+    $(".delete").fadeOut(300);
+    $(".individualblack").fadeOut(300);
+  });
+});
