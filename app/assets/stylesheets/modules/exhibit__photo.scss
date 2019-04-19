@@ -59,7 +59,6 @@
             font-color: black;
 	          }
       	  &__dropbox{
-      	      
               width: 620px;
               margin: 16px auto 0;
               background-repeat: no-repeat;
@@ -77,24 +76,14 @@
 
           &__file{
             box-sizing: border-box;
-            
             text-align: center;
-            // width: 618px;
-            // height: 162px;
-            // margin-top:  -40px;
-            // margin-left: -40px;
             }
           &__pc{
-          //   margin-top: -10px;
             position: absolute;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             width: 30%;
-          // 	text-align: center;
-          // 	width: 480px;
-		        // font-size: 14px;
-		        // line-height: 2;
             }
           }
           .icon-camera{
