@@ -136,6 +136,13 @@
 	$('.slick-list.draggable').children().each(function () {
 		var num = $(this).find('img').length;
 		if(num>=5){
-			$(this).find('img').css('width','20%');
+			$(this).find('img').css({
+				"width": "20%",
+			});
+		}
+		if(num>=6){
+			$(this).find('img').css({
+				"height": "50%"
+			});
 		}
 	});

@@ -1,0 +1,36 @@
+= render 'items/header'
+
+-breadcrumb :categories
+
+.category_show
+	.category_show__next_category
+		- @categories.children.each do |category|
+			= link_to "/categories/#{category.id}",id: "#{category.id}", method: :get do
+				=category.name
+
+	-# .user_pickup-category__box__items
+	-# 	- @categories.each do |category|
+	-# 		.user_pickup-category__box__items__item
+	-# 			= link_to "/items/#{item.id}", method: :get do
+	-# 				.user_pickup-category__box__items__item__photo
+	-# 					- item.photos.first(1).each do |photo|
+	-# 						= image_tag photo.image.url
+	-# 				.user_pickup-category__box__items__item__body
+	-# 					.user_pickup-category__box__items__item__body__title
+	-# 						= item.name
+	-# 					.user_pickup-category__box__items__item__body__detail
+	-# 						.user_pickup-category__box__items__item__body__detail__price
+	-# 							= item.price
+	-# 							円
+	-# 						.user_pickup-category__box__items__item__body__detail__like
+	-# 							= fa_icon("heart-o")
+	-# 							%span= item.like
+	-# 						.user_pickup-category__box__items__item__body__detail__tax
+	-# 							(税込)
+
+= render 'items/bottom-banner'
+= render 'items/footer'
+= link_to new_item_path,class:"sell_button" do
+	%span.sell_button__text 出品
+	.sell_button__icon
+		= fa_icon("camera 3x")
