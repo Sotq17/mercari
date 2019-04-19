@@ -13,15 +13,15 @@
                 必須
             %p.exhibit__upload__10 最大10枚までアップロードできます
             .exhibit__upload__dropbox
+              ドラッグ&ドロップまたはクリックしてファイルをアップロード
               .sell-upload-items-container
                 .sell-upload-items.have-item-0
                   %ul
               = f.fields_for :photos, class: 'exhibit__upload__dropbox__items' do |p|
-                =  p.file_field :image, class: 'exhibit__upload__dropbox__items__file'
-                %pre.exhibit__upload__dropbox__items__pc
-                  :preserve
-                           ドラッグ&ドロップ
-                      またはクリックしてファイルをアップロード
+                - @items.each do |photo|
+                  =  p.file_field :image, class: 'exhibit__upload__dropbox__items__file'
+                  %pre.exhibit__upload__dropbox__items__pc
+                    :preserve
           .exhibit__content
             .exhibit__content__groups
               %label.exhibit__upload__head
