@@ -75,4 +75,6 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'kaminari'
 gem 'active_hash'
-
+gem 'mechanize'
+gem 'ancestry'
+gem 'gretel'

@@ -8,5 +8,10 @@
     %link{href: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css", rel: "stylesheet", type: "text/css"}/
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %script{src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", type: "text/javascript"}
+    %script{src: "https://cdn.jsdelivr.net/npm/vue"}
+    -# 開発環境向け
+    -# %script{src:"https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"}
+    -# 本番環境向け
+    = breadcrumbs pretext: "You are here: ", separator: "&rsaquo;"
   %body
     = yield
