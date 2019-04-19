@@ -1,5 +1,5 @@
 $(function(){
-  $(".individual22222").click(function(e){
+  $(".individual_button").click(function(e){
   	e.preventDefault();
     $(".delete").fadeIn(500);
     $(".individualblack").fadeIn(500);
