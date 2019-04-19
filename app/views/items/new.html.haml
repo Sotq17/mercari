@@ -42,9 +42,9 @@
                   カテゴリー
                   %span.exhibit__upload__head__require
                     必須
-                / %div
-                /   .exhibit__select
-                /   = f.collection_select :size_id, Size.all, :id, :name, {},{required: 'true', autofocus: 'true', class: 'exhibit__select__default'}
+                %div
+                  .exhibit__select
+                  = f.collection_select :category_ids, @parents, :id, :name, {},{required: 'true', autofocus: 'true', class: 'exhibit__select__default'}
               .exhibit__contents__box__groups__2
                 %lavel.exhibit__upload__head
                   サイズ
