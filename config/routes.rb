@@ -8,4 +8,6 @@ Rails.application.routes.draw do
       get ':id/buy', to: 'items#buy',  as: :buy
     end
   end
+
+  resources :categories, only: [:index,:show]
 end

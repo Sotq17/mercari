@@ -1,6 +1,7 @@
 .individual{
-	margin: 40px 370px 0;
+	margin: 40px auto;
 	color: #333333;
+	width: 700px;
 	&__items{
 		background-color: white;
 		&__item{
@@ -33,7 +34,7 @@
 							opacity: 0.5;
 							outline-style: none;
 							width: 25%;
-							height: auto;
+							// height: auto;
 						}
 						.slick-list.draggable{
 							display: flex;

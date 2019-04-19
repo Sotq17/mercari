@@ -12,7 +12,7 @@
     .header__bottom
       .header__bottom__leftside
         .header__bottom__leftside__left_box
-          = link_to '', class: "header__bottom__leftside__left_box__content" do
+          = link_to categories_path, class: "header__bottom__leftside__left_box__content" do
             = fa_icon ("list-ul")
             %span カテゴリから探す
         .header__bottom__leftside__right_box
@@ -33,4 +33,18 @@
           = link_to '', class: "header__bottom__rightside__mypage__content" do
             %img.header__bottom__rightside__mypage__content__icon{alt: "", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32"}/
             %div マイページ
+
+
+  -# #app
+  -#   %ul.list
+  -#     %li.genre{"v-for" => "list in listlabel"}
+  -#       %a{:href => "#"} {{genre}}
+  -#       %ul
+  -#         %li.subgenre{"v-for" => "item in sublistlabel"}
+  -#           %a{:href => "#"} {{subgenre}}
+  -#           %ul
+  -#             %li.detail{"v-for" => "item in sublistlabel"}
+  -#               %a{:href => "#"} {{detail}}
+
+
 

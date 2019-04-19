@@ -1,0 +1,19 @@
+.category_show{
+	margin: 40px auto 0;
+  width: 1020px;
+	&__next_category{
+		font-size: 14px;
+		display: flex;
+		flex-wrap: wrap;
+		padding-bottom: 40px;
+		a {
+			color: #0099e8;
+			text-decoration: none;
+			padding: 0 10px;
+		}
+		a:hover{
+			opacity: 0.5;
+			text-decoration: underline;
+		}
+	}
+}

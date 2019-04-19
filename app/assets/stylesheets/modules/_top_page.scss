@@ -110,3 +110,32 @@
 
   }
 }
+
+
+.top_button{
+  bottom: 32px;
+  left: 32px;
+  width: 160px;
+  height: 160px;
+  font-size: 22px;
+  position: fixed;
+  border-radius: 50%;
+  background: #ea352d;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  &:active {
+    color: pink;
+  }
+  &__text{
+    font-size: 20px;
+    padding-bottom: 5px;
+  }
+  &__icon{
+    margin-bottom: 15px;
+
+  }
+}
