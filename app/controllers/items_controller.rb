@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
 
   def new
   	@item = Item.new
-    @item.photos.build
+    10.times{@item.photos.build}
   end
 
   def create
@@ -35,9 +35,14 @@ class ItemsController < ApplicationController
       end
   end
 
+  def destroy
+    @item.destroy
+    redirect_to root_path
+  end
+
   def edit
-    @item = Item.find(params[:id])
-    @item.photos.build
+    @items = @item.photos.where(item_id: [params[:id]])
+    10.times{@item.photos.build}
   end
 
 
@@ -55,6 +60,6 @@ class ItemsController < ApplicationController
 
   private
   def create_params
-      params.require(:item).permit(:name, :description, :price, :size_id, :state_id, :fee_side_id, :way_id, :region_id, :day_id, photos_attributes: [:id, :image, :_destroy])
+      params.require(:item).permit(:name, :description, :price, :size_id, :state_id, :fee_side_id, :way_id, :region_id, :day_id, photos_attributes: [:image])
   end
 end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :items, except: [:index] do
     collection do
       get 'search'
-      get ':id/buy' => 'items#buy'
+      get ':id/buy', to: 'items#buy',  as: :buy
     end
   end
 end
