@@ -4,7 +4,7 @@ class Item < ApplicationRecord
     belongs_to :brand,foreign_key: 'brand_id', optional: true
     has_many   :categorys,through: :item_categorys
     has_many   :comments
-    has_many   :photos
+    has_many   :photos, dependent: :destroy
     has_one    :review
 
     accepts_nested_attributes_for :photos
