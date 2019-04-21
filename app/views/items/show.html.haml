@@ -1,4 +1,8 @@
 = render 'header'
+.bread_crumbs
+	.bread_crumbs__text
+		-breadcrumb :show_items, @item
+		= breadcrumbs separator: "&rsaquo;"
 .individualblack
 .delete
 	.delete__item
@@ -30,13 +34,18 @@
 					%table
 						%tr
 							%th 出品者
-							%td=@item.size.name
+							-# %td=@item.size.name
+							%td="---"
 						%tr
 							%th カテゴリー
-							%td=@item.size.name
+							%td
+								- @item_categories.each do |item_category|
+									= link_to "/categories/#{item_category.category.id}", method: :get do
+										=item_category.category.name
 						%tr
 							%th ブランド
-							%td=@item.size.name
+							-# %td=@item.size.name
+							%td="---"
 						%tr
 							%th 商品のサイズ
 							%td=@item.size.name
