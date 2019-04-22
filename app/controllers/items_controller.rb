@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action  :item_find, except: [:index, :search, :new, :create]
-  before_action  :set_parents, only: [:index]
+  before_action  :set_parents, only: [:index,:show]
 
 	def index
     @items = Item.order("id DESC").limit(4).includes(:photos)
