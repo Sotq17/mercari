@@ -63,6 +63,14 @@
 						padding:8px;
 						width: 61%;
 						background: #fff;
+						a{
+							color: #0099e8;
+							text-decoration: none;
+						}
+						a:hover{
+							opacity: 0.5;
+							text-decoration: underline;
+						}
 					}
 				}
 			}
