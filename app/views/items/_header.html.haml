@@ -1,5 +1,5 @@
 %body
-  %header.header
+  %header#app.header
     .header__top
       .header__top__logo
         = link_to root_path do
@@ -10,11 +10,33 @@
           %button.header__top__search__box__submit{type: "submit"}= fa_icon ("search lg")
           %form{"accept-charset" => "utf-8", :action => "/", :method => "get"}
     .header__bottom
-      .header__bottom__leftside
-        .header__bottom__leftside__left_box
+      .header__bottom__leftside{"v-on:mouseleave": "hiddenMenu"}
+        .header__bottom__leftside__left_box{"v-on:mouseover": "showMenu","v-on:mouseleave": "hiddenCategory"}
           = link_to categories_path, class: "header__bottom__leftside__left_box__content" do
             = fa_icon ("list-ul")
             %span カテゴリから探す
+
+          -# ここからドロップダウンメニュー
+          .category_box{"v-show": "menuBool","v-on:mouseleave": "hiddenMenu"}
+            .genre-box
+              %ul.genre
+              - @parents.each do |parent|
+                = link_to category_path(parent.id), method: :get do
+                  %li.genre_list{'v-on:mouseover': "setCategoryInfo(#{parent.id})"}
+                    =parent.name
+            .next-box{'v-show': 'categoryInfoBool',"v-on:mouseleave": "hiddenSubInfo"}
+              .sub-box
+                %a{"v-for": "category in categoryInfo","v-bind:href": "'/categories/' + category.id"}
+                  %ul.sub
+                    %li.sub_list{"v-on:mouseover": "setSubInfo(category.id)"}
+                      {{category.name}}
+              .detail-box{'v-show': 'SubInfoBool'}
+                %a{"v-for": "sub in SubInfo","v-bind:href": "'/categories/' + sub.id"}
+                  %ul.detail
+                    %li.detail_list
+                      {{sub.name}}
+          -# ここまでドロップダウンメニュー
+
         .header__bottom__leftside__right_box
           = link_to '', class: "header__bottom_box__leftside__right_box__content" do
             = fa_icon ("tag")
@@ -34,17 +56,46 @@
             %img.header__bottom__rightside__mypage__content__icon{alt: "", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32"}/
             %div マイページ
 
+  %script{src:"https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"}
+  %script{src:"https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"}
+  %script{src:"https://cdn.jsdelivr.net/vue.router/2.0.1/vue-router.min.js"}
+  :javascript
 
-  -# #app
-  -#   %ul.list
-  -#     %li.genre{"v-for" => "list in listlabel"}
-  -#       %a{:href => "#"} {{genre}}
-  -#       %ul
-  -#         %li.subgenre{"v-for" => "item in sublistlabel"}
-  -#           %a{:href => "#"} {{subgenre}}
-  -#           %ul
-  -#             %li.detail{"v-for" => "item in sublistlabel"}
-  -#               %a{:href => "#"} {{detail}}
-
-
-
+    new Vue({
+      el:"#app",
+      data:{
+       categoryInfo:[],
+       SubInfo:[],
+       menuBool: false,
+       categoryInfoBool: false,
+       SubInfoBool: false,
+      },
+      methods: {
+        setCategoryInfo(id){
+          axios.get(`/api/genres/${id}.json`)
+          .then(res => {
+            this.categoryInfo = res.data;
+            this.categoryInfoBool = true;
+          });
+        },
+        setSubInfo(id){
+          axios.get(`/api/genres/${id}.json`)
+          .then(res => {
+            this.SubInfo = res.data;
+            this.SubInfoBool = true;
+          });
+        },
+        showMenu:function(){
+          return this.menuBool = true
+        },
+        hiddenMenu:function(){
+          return this.menuBool = false;
+        },
+        hiddenCategory:function(){
+          return this.categoryInfoBool = false;
+        },
+        hiddenSubInfo:function(){
+          return this.SubInfoBool = false
+        },
+      }
+    });
