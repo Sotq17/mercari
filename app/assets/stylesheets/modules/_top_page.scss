@@ -1,5 +1,6 @@
 .pickup-category{
   padding-bottom: 40px;
+  
   &__title{
     display: flex;
     justify-content: center;
@@ -138,11 +139,4 @@
     margin-bottom: 15px;
 
   }
-}
-
-#app{
-  height: 410px;
-  position: relative;
-  z-index: 10;
-  background-color: white;
 }
