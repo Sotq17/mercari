@@ -21,17 +21,17 @@
             .genre-box
               %ul.genre
               - @parents.each do |parent|
-                = link_to "/categories/#{parent.id}", method: :get do
+                = link_to category_path(parent.id), method: :get do
                   %li.genre_list{'v-on:mouseover': "setCategoryInfo(#{parent.id})"}
                     =parent.name
             .next-box{'v-show': 'categoryInfoBool',"v-on:mouseleave": "hiddenSubInfo"}
               .sub-box
-                %a{"v-for": "category in categoryInfo","v-bind:href" => "'/categories/' + category.id"}
+                %a{"v-for": "category in categoryInfo","v-bind:href": "'/categories/' + category.id"}
                   %ul.sub
                     %li.sub_list{"v-on:mouseover": "setSubInfo(category.id)"}
                       {{category.name}}
               .detail-box{'v-show': 'SubInfoBool'}
-                %a{"v-for": "sub in SubInfo","v-bind:href" => "'/categories/' + sub.id"}
+                %a{"v-for": "sub in SubInfo","v-bind:href": "'/categories/' + sub.id"}
                   %ul.detail
                     %li.detail_list
                       {{sub.name}}
