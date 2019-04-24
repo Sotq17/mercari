@@ -6,9 +6,10 @@
     .head
       %center 新規会員登録
     .contents
-      .contents__mail-adress
+      .contents__mail-adress{type: "button"}
         %i.fa.fa-envelope-o{"aria-hidden": "true"}
-        = link_to 'メールアドレスで登録'
+        = link_to registrations_path do
+          %div メールアドレスで登録
       .contents__facebook
         %i.fa.fa-facebook-square{"aria-hidden": "true"}
         = link_to 'Facebookで登録'
