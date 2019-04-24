@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@rails/webpacker": "^4.0.2",
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.3.1"
+  }
+}

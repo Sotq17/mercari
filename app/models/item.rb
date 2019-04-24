@@ -2,10 +2,11 @@ class Item < ApplicationRecord
 
 	belongs_to :user, foreign_key: 'user_id',optional: true
     belongs_to :brand,foreign_key: 'brand_id', optional: true
-    has_many   :categorys,through: :item_categorys
+    has_many   :categories,through: :item_categories
     has_many   :comments
-    has_many   :photos
+    has_many   :photos, dependent: :destroy
     has_one    :review
+    has_many   :item_categories, dependent: :destroy
 
     accepts_nested_attributes_for :photos
   extend ActiveHash::Associations::ActiveRecordExtensions

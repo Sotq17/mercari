@@ -1,0 +1,41 @@
+= render 'items/header'
+.bread_crumbs
+	.bread_crumbs__text
+		- breadcrumb :categories
+		= breadcrumbs separator: "&rsaquo;"
+#top.category
+	.category__container
+		.category__title
+			カテゴリー一覧
+		.category__box
+			.category__box__categories
+				- @parents.each do |parent|
+					%a{href: "##{parent.id}"}
+						.category__box__categories__category
+							=parent.name
+			.category__box__list
+				.category__box__list__genre
+					- @parents.each do |parent|
+						.category__box__list__genre__title
+							= link_to "/categories/#{parent.id}",id: "#{parent.id}", method: :get do
+								=parent.name
+						.category__box__list__genre__innerbox
+							- parent.children.each do |child|
+								.category__box__list__genre__innerbox__children
+									= link_to "/categories/#{child.id}",id: "#{child.id}", method: :get do
+										=child.name
+									.category__box__list__genre__innerbox__children__box
+										- child.children.each do |grandchild|
+											.category__box__list__genre__innerbox__children__box__grandchildren
+												= link_to "/categories/#{grandchild.id}", method: :get do
+													=grandchild.name
+= render 'items/bottom-banner'
+= render 'items/footer'
+= link_to new_item_path,class:"sell_button" do
+	%span.sell_button__text 出品
+	.sell_button__icon
+		= fa_icon("camera 3x")
+= link_to "#top",class:"top_button" do
+	%span.sell_button__text TOP
+	.sell_button__icon
+		= fa_icon("arrow-up 3x")
