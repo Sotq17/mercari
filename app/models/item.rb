@@ -6,7 +6,7 @@ class Item < ApplicationRecord
     has_many   :comments
     has_many   :photos, dependent: :destroy
     has_one    :review
-    has_many   :item_categories
+    has_many   :item_categories, dependent: :destroy
 
     accepts_nested_attributes_for :photos
   extend ActiveHash::Associations::ActiveRecordExtensions

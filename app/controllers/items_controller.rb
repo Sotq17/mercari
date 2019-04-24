@@ -1,12 +1,14 @@
 class ItemsController < ApplicationController
   before_action  :item_find, except: [:index, :search, :new, :create]
+  before_action  :set_parents, only: [:index, :show, :search]
 
 	def index
-		@items = Item.order("id DESC").limit(4).includes(:photos)
+    @items = Item.order("id DESC").limit(4).includes(:photos)
+    @parents = Category.all.order("id ASC").limit(13)
 	end
 
 	def search
-		@items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").order("id DESC").page(params[:page]).per(15)
+    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").order("id DESC").page(params[:page]).per(15)
 			if params[:keyword] == ""
 				redirect_to '/items/search?utf8=✓&keyword=+++'
 			end
@@ -16,7 +18,9 @@ class ItemsController < ApplicationController
 	end
 
 	def show
-		@items = Item.order("id DESC").limit(6).includes(:photos)
+    @items = Item.order("id DESC").limit(6).includes(:photos)
+    item = Item.find(params[:id])
+    @item_categories = item.item_categories
 		#User_id/category_idなどが取れたら別途実装します。
 		#とりあえず新着アイテムで実装します
 	end
@@ -61,8 +65,14 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+
   private
   def create_params
       params.require(:item).permit(:name, :description, :price, :size_id, :state_id, :fee_side_id, :way_id, :region_id, :day_id, :category_ids, photos_attributes: [:image])
   end
+
+  def set_parents
+    @parents = Category.all.order("id ASC").limit(13)
+  end
+
 end

@@ -1,4 +1,8 @@
 = render 'items/header'
+.bread_crumbs
+	.bread_crumbs__text
+		- breadcrumb :categories
+		= breadcrumbs separator: "&rsaquo;"
 #top.category
 	.category__container
 		.category__title
