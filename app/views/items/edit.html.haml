@@ -18,9 +18,10 @@
                 .sell-upload-items.have-item-0
                   %ul
               = f.fields_for :photos, class: 'exhibit__upload__dropbox__items' do |p|
-                =  p.file_field :image, class: 'exhibit__upload__dropbox__items__file'
-                %pre.exhibit__upload__dropbox__items__pc
-                  :preserve
+                - @items.each do |photo|
+                  =  p.file_field :image, class: 'exhibit__upload__dropbox__items__file'
+                  %pre.exhibit__upload__dropbox__items__pc
+                    :preserve
           .exhibit__content
             .exhibit__content__groups
               %label.exhibit__upload__head
@@ -42,9 +43,9 @@
                   カテゴリー
                   %span.exhibit__upload__head__require
                     必須
-                %div
-                  .exhibit__select
-                  = f.collection_select :category_ids, @parents, :id, :name, {},{required: 'true', autofocus: 'true', class: 'exhibit__select__default'}
+                / %div
+                /   .exhibit__select
+                /   = f.collection_select :size_id, Size.all, :id, :name, {},{required: 'true', autofocus: 'true', class: 'exhibit__select__default'}
               .exhibit__contents__box__groups__2
                 %lavel.exhibit__upload__head
                   サイズ
@@ -128,7 +129,7 @@
                   %p.exhibit__sellbtn__word
                     また出品をもちまして、
                     = link_to '加盟店規約に同意したことになります。','http://google.co.jp'
-                = f.submit('出品する', class: 'exhibit__sellbtn__red')
+                = f.submit('変更する', class: 'exhibit__sellbtn__red')
                 %div
-                  %button.exhibit__sellbtn__gray{:onclick => "location.href='/'", :type => "button"}もどる
+                  %button.exhibit__sellbtn__gray{:onclick => "location.href='/'", :type => "button"}キャンセル
       = render 'exhibit@footer'

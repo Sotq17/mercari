@@ -1,0 +1,65 @@
+.delete{
+  display: none;
+  position: fixed;
+  z-index: 4000;
+  background-size: cover;
+  background-position: center;
+  top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  &__item{
+  	text-align: center;
+  	max-width: none;
+    width: 600px;
+    margin: 20px auto;
+    background: #fff;
+  	&__box{
+  	  padding: 64px;
+  	  &__text{
+        font-size: 16px;
+        font-weight: 600;
+  	  }
+  	  &__text2{
+        font-size: 14px;
+  	  }
+  	  &__text3{
+        font-size: 14px;
+  	  }
+  	  &__text4{
+        font-size: 14px;
+  	  }
+  	}
+  	&__button{
+  	  display: flex;
+  	  border-top: 1px solid #ccc;
+  	&__box1{
+      border-right: 1px solid #ccc;
+      width: 50%;
+      text-align: center;
+      line-height: 63px;
+  	}
+  	&__box2{
+      color: #0099e8;
+      line-height: 63px;
+      width: 299px;
+      border: none;
+  	}
+   }
+  }
+}
+.individualblack{
+  display: none;
+  opacity: 0.6; 
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 3000;
+    overflow-x: hidden;
+    overflow-y: auto;
+}

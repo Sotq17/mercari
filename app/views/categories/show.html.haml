@@ -1,0 +1,40 @@
+= render 'items/header'
+
+.bread_crumbs
+	.bread_crumbs__text
+		- breadcrumb :show_categories, @categories
+		= breadcrumbs separator: "&rsaquo;"
+
+.category_show_result
+	.category_show_result__next_category
+		- @categories.children.each do |category|
+			= link_to "/categories/#{category.id}",id: "#{category.id}", method: :get do
+				=category.name
+	.category_show_result__title
+		.category_show__result__title__text
+			="#{@categories.name}の商品一覧"
+	.category_show_result__user_pickup-category__box__items
+		- @item_categories.each do |item_category|
+			.category_show_result__user_pickup-category__box__items__item
+				= link_to "/items/#{item_category.item.id}", method: :get do
+					.category_show_result__user_pickup-category__box__items__item__photo
+						- item_category.item.photos.first(1).each do |photo|
+							= image_tag photo.image.url
+					.category_show_result__user_pickup-category__box__items__item__body
+						.category_show_result__user_pickup-category__box__items__item__body__title
+							= item_category.item.name
+						.category_show_result__user_pickup-category__box__items__item__body__detail
+							.category_show_result__user_pickup-category__box__items__item__body__detail__price
+								= item_category.item.price
+								円
+							.category_show_result__user_pickup-category__box__items__item__body__detail__like
+								= fa_icon("heart-o")
+								%span= item_category.item.like
+							.category_show_result__user_pickup-category__box__items__item__body__detail__tax
+								(税込)
+= render 'items/bottom-banner'
+= render 'items/footer'
+= link_to new_item_path,class:"sell_button" do
+	%span.sell_button__text 出品
+	.sell_button__icon
+		= fa_icon("camera 3x")

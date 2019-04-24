@@ -1,0 +1,90 @@
+.category_show_result{
+	margin: 40px auto 0;
+	width: 1020px;
+	
+	&__next_category{
+		font-size: 14px;
+		display: flex;
+		flex-wrap: wrap;
+		padding-bottom: 40px;
+		a {
+			color: #0099e8;
+			text-decoration: none;
+			padding: 0 10px;
+		}
+		a:hover{
+			opacity: 0.5;
+			text-decoration: underline;
+		}
+	}
+	&__title{
+		padding: 0 0 10px 15px;
+		font-size: 22px;
+		line-height: 1.4;
+		font-weight: bold;
+		&__text{
+		}
+	}
+	&__user_pickup-category__box{
+		padding: 0 370px;
+		&__title{
+			text-align: center;
+			font-size: 22px;
+			font-weight: bold;
+			padding: 20px 0;
+			a{
+				color: #0099e8;
+				text-decoration: none;
+			}
+			a:hover{
+				opacity: 0.5;
+				text-decoration: underline;
+			}
+		}
+		&__items{
+			display: flex;
+			flex-wrap: wrap;
+			font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+			a{
+				color: black;
+				text-decoration: none;
+			}
+			&__item{
+				height:290px;
+				width:180px;
+				padding: 0 0 15px 15px;
+				&__photo{
+					background-color: white;
+					img{
+						height: 180px;
+						width: 180px;
+					}
+				}
+				&__body{
+					background-color: white;
+					padding: 16px;
+					&__title{
+						font-size: 16px;
+						width:180px;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+					&__detail{
+						margin: 8px 0 0;
+						&__price{
+							font-size: 20px;
+						}
+						&__like{
+							font-size: 16px;
+							float: right;
+						}
+						&__tax{
+							font-size: 10px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
