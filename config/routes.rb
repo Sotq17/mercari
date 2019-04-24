@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, skip: :all,  :controllers => {
+    :registrations => 'users/registrations'
+  }
+  #  devise_scope :user do
+  #   get "sign_up", :to => "users/registrations#information"
+  # end
+    devise_scope :user do
+  get 'signup' => 'users/registrations#new'
+  get 'registrations' => 'users/registrations#input_info'
+  post 'create' => 'users/registrations#create'
+  delete 'logout' => 'users/sessions#destroy'
+end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root   'items#index'
   resources :items do
@@ -7,4 +18,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+  #  devise_scope :user do
+  #   get 'users/thanks' => 'users/registrations#thanks'
+  # end
 end
