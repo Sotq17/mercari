@@ -52,8 +52,9 @@
               = fa_icon("check lg")
               %span やることリスト
         .header__bottom__rightside__mypage
-          = link_to '', class: "header__bottom__rightside__mypage__content" do
+          = link_to signup_path, class: "header__bottom__rightside__mypage__content" do
             %img.header__bottom__rightside__mypage__content__icon{alt: "", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32"}/
+
             %div マイページ
 
   %script{src:"https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"}

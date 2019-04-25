@@ -1,0 +1,172 @@
+.body
+  .top-header
+    .top-header_input_info
+      = link_to root_path do
+        = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1631939674', alt: "mercari"
+        = render 'devise/registrations/progress_bar'
+  .input_main
+  = form_for @user, url: create_path, method:'POST' do |f|
+    .head
+      %center
+        会員情報入力
+    .contents
+      .contents_inner
+        .form-group
+          %label
+            ニックネーム
+          %span.must
+            必須
+          = f.text_field :nickname , class: 'form-group_input',  placeholder: "なかもとゆうと"
+        .form-group
+          %label
+            メールアドレス
+          %span.must
+            必須
+          = f.text_field :email, class: 'form-group_input',  placeholder: "PC・携帯どちらでも可"
+        .form-group
+          %label
+            パスワード
+          %span.must
+            必須
+          = f.text_field :password, class: 'form-group_input',  placeholder: "6文字以上"
+        .form-group
+          %label
+            パスワード（確認）
+          %span.must
+            必須
+          = f.text_field :password, class: 'form-group_input',  placeholder: "6文字以上"
+        .form-group
+          %h3.left-text
+            本人確認
+          %p.under-text
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .form-group
+          %label
+            姓（全角）
+          %span.must
+            必須
+          = f.text_field :last_name, class: 'form-group_input',  placeholder: "例）仲本"
+        .form-group
+          %label
+            名（全角）
+          %span.must
+            必須
+          = f.text_field :first_name, class: 'form-group_input',  placeholder: "例）悠斗"
+        .form-group
+          %label
+            姓カナ（全角）
+          %span.must
+            必須
+          = f.text_field :last_kana, class: 'form-group_input',  placeholder: "例）ナカモト"
+        .form-group
+          %label
+            名カナ（全角）
+          %span.must
+            必須
+          = f.text_field :first_kana, class: 'form-group_input',  placeholder: "例）ユウト"
+        .form-group
+          %label
+            生年月日
+          %span.must
+            必須
+          .form-group_birthday
+            = f.collection_select :birth_year_id, BirthYear.all, :id, :name, {}, {required: 'true', autofocus: 'true', class: 'select'}
+            %span.birth-day 年
+          .form-group_birthday
+            = f.collection_select :birth_month_id, BirthMonth.all, :id, :name, {}, {required: 'true', autofocus: 'true', class: 'select'}
+            %span.birth-day 月
+          .form-group_birthday
+            = f.collection_select :birth_day_id, BirthDay.all, :id, :name, {}, {required: 'true', autofocus: 'true', class: 'select'}
+            %span.birth-day 日
+        .form-group
+          %label
+            郵便番号
+          %span.must
+            必須
+          = f.text_field :postal_code, class: 'form-group_input',  placeholder: "例）904-0021"
+        .form-group
+          %label
+            都道府県
+          %span.must
+            必須
+          .form-group_birthday
+            = f.collection_select :region_id, Region.all,:id, :name, {}, {required: 'true', autofocus: 'true', class: 'select'}
+        .form-group
+          %label
+            市町村
+          %span.must
+            必須
+          = f.text_field :city, class: 'form-group_input',  placeholder: "例）沖縄市"
+        .form-group
+          %label
+            番地
+          %span.must
+            必須
+          = f.text_field :adress, class: 'form-group_input',  placeholder: "例）胡屋３丁目３８−１"
+        .form-group
+          %label
+            建物
+          %span.any
+            任意
+          = f.text_field :building, class: 'form-group_input',  placeholder: "例）コザ中学校"
+        .form-group
+          %label
+            電話番号
+          %span.must
+            必須
+          = f.text_field :building, class: 'form-group_input',  placeholder: "例）098-933-3539"
+        .form-group
+          %label
+            カード番号
+          %span.must
+            必須
+          = f.text_field :building, class: 'form-group_input',  placeholder: "半角数字のみ"
+          %ul.card-list
+            %li
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2845599746', class: "card-icon"
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2845599746', class: "card-icon"
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?2845599746', class: "card-icon"
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2845599746', class: "card-icon"
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?2845599746', class: "american-express"
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?2845599746', class: "card-icon"
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?2845599746', class: "card-icon"
+        .form-group
+          %label
+            有効期限
+          %span.must
+            必須
+          .form-group_birthday
+            = f.collection_select :expiration_year_id, ExpirationYear.all, :id, :name, {}, {required: 'true', autofocus: 'true', class: 'select'}
+            %span.birth-day 年
+          .form-group_birthday
+            = f.collection_select :expiration_month_id, ExpirationMonth.all, :id, :name, {}, {required: 'true', autofocus: 'true', class: 'select'}
+            %span.birth-day 月
+        .form-group
+          %label
+            セキュリティコード
+          %span.must
+            必須
+          = f.text_field :security_code, class: 'form-group_input',  placeholder: "カードの背面4桁もしくは3桁の番号"
+          .security-code
+            .sequrity-code_text
+              %span.question
+                ?
+              %span.question-text
+                カードの裏面の番号とは？
+        %p.warning-text
+          ※本人情報は正しく入力してください。
+          会員登録後、修正するにはお時間を頂く場合があります。
+    .bottom-contents
+      %iframe
+        reCAPTCHA実装予定箇所
+      .bottom-contents_group
+        %p{class: "ask-agreement", target: "_blank"}
+          「完了」のボタンを押すことにより、
+        = link_to root_path, class: "link_protocol" do
+          利用規約
+        に同意したものとみなします
+        = f.submit('完了', class: "complete")
+      = link_to root_path, class: "link_registration" do
+        本人情報の登録について 〉
+  .footer
+    = render 'items/exhibit@footer'
