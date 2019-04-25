@@ -5,7 +5,7 @@
         = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1631939674', alt: "mercari"
         = render 'devise/registrations/progress_bar'
   .input_main
-  = form_for @user, url: create_path, method:'POST' do |f|
+  = form_for @user, url: create_path  do |f|
     .head
       %center
         会員情報入力
@@ -29,12 +29,12 @@
           %span.must
             必須
           = f.text_field :password, class: 'form-group_input',  placeholder: "6文字以上"
-        .form-group
-          %label
-            パスワード（確認）
-          %span.must
-            必須
-          = f.text_field :password, class: 'form-group_input',  placeholder: "6文字以上"
+        / .form-group
+        /   %label
+        /     パスワード（確認）
+        /   %span.must
+        /     必須
+        /   = f.text_field :password, class: 'form-group_input',  placeholder: "6文字以上"
         .form-group
           %h3.left-text
             本人確認
@@ -114,13 +114,13 @@
             電話番号
           %span.must
             必須
-          = f.text_field :building, class: 'form-group_input',  placeholder: "例）098-933-3539"
+          = f.text_field :phone, class: 'form-group_input',  placeholder: "例）098-933-3539"
         .form-group
           %label
             カード番号
           %span.must
             必須
-          = f.text_field :building, class: 'form-group_input',  placeholder: "半角数字のみ"
+          = f.text_field :card_number, class: 'form-group_input',  placeholder: "半角数字のみ"
           %ul.card-list
             %li
               = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2845599746', class: "card-icon"
