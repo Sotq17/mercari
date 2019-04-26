@@ -4,10 +4,10 @@ $(function(){
   var input = $(".exhibit__select__defaults1").val();
   var inputs = $(".exhibit__select__defaults2").val();
     if (input == ""){
-    $(".exhibit__select__defaults1").removeAttr("name");
+      $(".exhibit__select__defaults1").removeAttr("name");
     }
     if (inputs == ""){
-    $(".exhibit__select__defaults2").removeAttr("name");
+      $(".exhibit__select__defaults2").removeAttr("name");
     }
   });
 });

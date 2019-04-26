@@ -2,13 +2,13 @@ class CategoriesController < ApplicationController
 	before_action  :set_parents, only: [:index, :show]
 
 	def index
-		@parents = Category.all.order("id ASC").limit(13)
+	  @parents = Category.all.order("id ASC").limit(13)
 	end
 
 	def show
-		@categories = Category.find(params[:id])
-		category = Category.find(params[:id])
-		@item_categories = category.item_categories
+	  @categories = Category.find(params[:id])
+	  category = Category.find(params[:id])
+	  @item_categories = category.item_categories
 	end
 
 	def set_parents
@@ -16,21 +16,21 @@ class CategoriesController < ApplicationController
     end
 
 	def category_search
-		@parents = Category.find(params[:id])
-		@childrens = @parents.children
-        respond_to do |format|
-          format.html
-          format.json
-        end
+	  @parents = Category.find(params[:id])
+	  @childrens = @parents.children
+      respond_to do |format|
+        format.html
+        format.json
+      end
 	end
 
 	def grandchild_search
-		@childrens = Category.find(params[:id])
-		@grandchilds = @childrens.children
-		respond_to do |format|
-          format.html
-          format.json
-        end
+	  @childrens = Category.find(params[:id])
+	  @grandchilds = @childrens.children
+	  respond_to do |format|
+        format.html
+        format.json
+      end
     end
 end
 

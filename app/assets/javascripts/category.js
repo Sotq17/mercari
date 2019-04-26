@@ -23,7 +23,7 @@ $(function(){
   }
 
   $(".exhibit__select__defaults").change(function(e){
-  	e.preventDefault();
+    e.preventDefault();
   	var input = $("#item_category_ids").val();
     $('.exhibit__select__defaults1').fadeOut(5);
     $('.exhibit__select__defaults2').fadeOut(5);
