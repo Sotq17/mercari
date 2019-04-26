@@ -39,9 +39,9 @@ $(function(){
       $('.exhibit__select__defaults1').add();
       optionCategory();
       $('.exhibit__select__defaults1').fadeIn(5);
-      parent.forEach(function(parent) {
-      appendProduct(parent);
-      });
+        parent.forEach(function(parent) {
+        appendProduct(parent);
+        });
     });
   });
   $(".exhibit__select__defaults1").change(function(e){
