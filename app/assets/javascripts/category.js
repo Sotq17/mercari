@@ -4,12 +4,12 @@ $(function(){
 
   function  appendProduct(parent){
     var html = `<option value=${parent.id}>${parent.name}</option>`
-   search_list.append(html);
+    search_list.append(html);
   }
 
   function  appendCategory(parent){
     var html = `<option value=${parent.id}>${parent.name}</option>`
-   category_list.append(html);
+    category_list.append(html);
   }
 
   function  optionCategory(){
@@ -34,16 +34,14 @@ $(function(){
       type: 'GET',
       dataType: 'JSON',
       data: {id: input},
-      })
+    })
     .done(function(parent) {
       $('.exhibit__select__defaults1').add();
       optionCategory();
       $('.exhibit__select__defaults1').fadeIn(5);
-
-      console.log(parent)
       parent.forEach(function(parent) {
       appendProduct(parent);
-    });
+      });
     });
   });
   $(".exhibit__select__defaults1").change(function(e){
@@ -51,7 +49,6 @@ $(function(){
     var input = $(".exhibit__select__defaults1").val();
     $('.exhibit__select__defaults2').fadeOut(5);
     $('.exhibit__select__defaults2').empty();
-    console.log(input)
     $.ajax({
       url: '/categories/grandchild_search',
       type: 'GET',
