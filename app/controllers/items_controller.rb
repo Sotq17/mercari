@@ -29,8 +29,7 @@ class ItemsController < ApplicationController
   	@item = Item.new
     10.times{@item.photos.build}
     @parents = Category.all.order("id ASC").limit(13)
-    @item.item_categories.build
-
+    3.times{@item.item_categories.build}
   end
 
   def create
