@@ -27,5 +27,10 @@ end
   #   get 'users/thanks' => 'users/registrations#thanks'
   # end
 
-  resources :categories, only: [:index,:show]
+  resources :categories, only: [:index,:show] do
+  	collection do
+      get 'category_search', to: 'categories#category_search'
+      get 'grandchild_search', to: 'categories#grandchild_search'
+    end
+  end
 end

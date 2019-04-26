@@ -1,7 +1,7 @@
 $(function(){
   $(".individual_button").click(function(e){
   	e.preventDefault();
-    $(".delete").fadeIn(500);
+    $(".delete").fadeIn(300);
     $(".individualblack").fadeIn(500);
   });
   $(".delete__item__button__box1").click(function(){
