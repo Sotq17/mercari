@@ -1,2 +1,20 @@
-.contents
-  = link_to root_path
+.body
+  .top-header
+    .top-header_input_info
+      = link_to root_path do
+        = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1631939674', alt: "mercari"
+        = render 'devise/registrations/progress_bar'
+  .main
+    .main__container
+      .head
+        %center 会員情報登録
+      .contents
+        .contents_message
+          %center.contents_message_text
+            ありがとうございます。
+          %center.contents_message_text
+            会員登録が完了しました。
+        .contents_button
+          = link_to root_path do
+            %button.contents_button_start
+              メルカリを始める！

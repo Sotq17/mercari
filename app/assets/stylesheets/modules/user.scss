@@ -1,7 +1,16 @@
-.header{
-  height: 110px;
+.new-header{
+  padding: 10px 210px 0 210px;
+  height: 100px;
+  color: black;
+  &__top{
+    height: 50px;
+    &__logo{
+      width: 134px;
+      height: 36px;
+      padding-top: 10px;
+    }
+  }
 }
-
 .main{
   display: flex;
   justify-content: center;
