@@ -12,8 +12,8 @@ class CategoriesController < ApplicationController
 	end
 
 	def set_parents
-      @parents = Category.all.order("id ASC").limit(13)
-    end
+    @parents = Category.all.order("id ASC").limit(13)
+  end
 
 	def category_search
 	  @parents = Category.find(params[:id])
@@ -27,7 +27,7 @@ class CategoriesController < ApplicationController
 	def grandchild_search
 	  @childrens = Category.find(params[:id])
 	  @grandchilds = @childrens.children
-	  respond_to do |format|
+	    respond_to do |format|
         format.html
         format.json
       end
