@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many   :comments
   has_many   :items
   has_one    :profile
-  has_one    :card
+  # has_one    :card, optional: true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
