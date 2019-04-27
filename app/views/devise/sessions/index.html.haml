@@ -1,0 +1,37 @@
+.body
+  .new-header
+  %h1.new-header_top{align:"center"}
+    %a{href: "/", class: "new-header_logo"}
+      = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1499590657', class: 'exhibit__header__image', alt: "mercari"
+  .input_main
+  = form_for @user, url: signup_path, method: "get" do |f|
+    .head
+      .head_contents
+        %p.head_contents_text
+          アカウントをお持ちでない方はこちら
+        = link_to registrations_path do
+          %button.head_contents_button
+            新規会員登録
+    .contents
+      .contents_sns
+        .contents_sns_facebook
+          %i.fa.fa-facebook-square{"aria-hidden": "true"}
+          %a.facebook Facebookでログイン
+        .contents_sns_google
+          %img{alt: "", src: "https://www.mercari.com/jp/assets/img/common/common/google.svg"}
+          %a.google Googleでログイン
+      .contents_input
+        .contents_input_group
+          = f.text_field :email, class: 'contents_input_group_form', placeholder: "メールアドレス"
+        .form-group
+          = f.text_field :password, class: 'contents_input_group_form',placeholder: "パスワード"
+    .bottom-contents
+      %iframe
+        reCAPTCHA実装予定箇所
+      .bottom-contents_group
+        %p{class: "ask-agreement", target: "_blank"}
+        = link_to root_path, class: "link_protocol" do
+          パスワードをお忘れの方
+        = f.submit('ログイン', class: "complete")
+  .footer
+    = render 'items/exhibit@footer'
