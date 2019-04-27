@@ -2,19 +2,31 @@ class ItemsController < ApplicationController
   before_action  :item_find, except: [:index, :search, :new, :create]
   before_action  :set_parents, only: [:index, :show, :search]
 
-	def index
+  before_action  :set_search_items
+
+  def index
     @items = Item.order("id DESC").limit(4).includes(:photos)
     @parents = Category.all.order("id ASC").limit(13)
 	end
 
-	def search
-    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").order("id DESC").page(params[:page]).per(15)
-			if params[:keyword] == ""
-				redirect_to '/items/search?utf8=✓&keyword=+++'
-			end
-			if @items.count == 0
-				@all_items = Item.limit(25).order("id DESC")
-			end
+  def search
+    # @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").order("id DESC").page(params[:page]).per(15)
+		# 	if params[:keyword] == ""
+		# 		redirect_to '/items/search?utf8=✓&keyword=+++'
+		# 	end
+		# 	if @items.count == 0
+		# 		@all_items = Item.limit(25).order("id DESC")
+    #   end
+
+    # @search = Item.ransack(name_matches: "%#{params[:keyword]}%",size_id_matches: "%#{params[:p]}%",state_id_matches: "%#{params[:p]}%",fee_side_id_matches: "%#{params[:p]}%",way_id_matches: "%#{params[:p]}%")
+    if params[:q] == {"name_cont"=>""}
+      redirect_to '/items/search/'
+    end
+    if @search_items.count == 0
+      @all_items = Item.limit(25).order("id DESC")
+    end
+    @parents = Category.all.order("id ASC").limit(13)
+    # binding.pry
 	end
 
 	def show
@@ -30,6 +42,7 @@ class ItemsController < ApplicationController
     10.times{@item.photos.build}
     @parents = Category.all.order("id ASC").limit(13)
     3.times{@item.item_categories.build}
+    @item.item_categories.build
   end
 
   def create
@@ -74,4 +87,8 @@ class ItemsController < ApplicationController
     @parents = Category.all.order("id ASC").limit(13)
   end
 
+  def set_search_items
+    @search = Item.ransack(params[:q])
+    @search_items = @search.result.includes(:categories).order("id DESC").page(params[:page]).per(15)
+  end
 end
