@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
 
     # @search = Item.ransack(name_matches: "%#{params[:keyword]}%",size_id_matches: "%#{params[:p]}%",state_id_matches: "%#{params[:p]}%",fee_side_id_matches: "%#{params[:p]}%",way_id_matches: "%#{params[:p]}%")
     if params[:q] == {"name_cont"=>""}
-      redirect_to 'http://localhost:3000/items/search/'
+      redirect_to '/items/search/'
     end
     if @search_items.count == 0
       @all_items = Item.limit(25).order("id DESC")
