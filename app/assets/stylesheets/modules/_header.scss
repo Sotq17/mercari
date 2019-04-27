@@ -8,7 +8,7 @@ html, body {
 .header{
   position: relative;
   padding: 10px 210px 0 210px;
-  height: 100px;
+  height: 110px;
   color: black;
   background-color: white;
   &__top{
@@ -30,10 +30,11 @@ html, body {
           background: #e6e6e6;
           border-color: transparent;
           border-radius: 2px;
-          width: 100%;
+          width: -webkit-fill-available;
           height: 36px;
           padding: 24px 20px 24px 10px;
           outline: 0;
+          height: -webkit-fill-available;
         }
         &__submit{
           position: absolute;
@@ -67,14 +68,16 @@ html, body {
         color: red;
       }
       display: inline-flex;
-      align-items: center;
       font-weight: bold;
+      padding-top:20px;
       &__left_box{
+        height: 60px;
         &__content{
         }
       }
       &__right_box{
         padding-left: 30px;
+        height: 60px;
         &__content{
         }
       }
@@ -107,36 +110,6 @@ html, body {
           }
         }
       }
-    }
-  }
-}
-
-.bread_crumbs{
-  position: relative;
-  border-top: 1px solid #eee;
-  -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-  background: #fff;
-  height: 50px;
-  margin: auto;
-  &__text{
-    font-size: 14px;
-    width: 1020px;
-    margin: auto;
-    vertical-align: middle;
-    padding: 14px 0;
-    a{
-      color: #333333;
-      text-decoration: none;
-      padding: 10px;
-    }
-    a:hover{
-      opacity: 0.5;
-      text-decoration: underline;
-    }
-    span{
-      font-weight: bold;
-      padding: 10px;
     }
   }
 }
