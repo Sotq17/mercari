@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
 	before_action  :set_parents, only: [:index, :show]
+	before_action  :set_search_items
 
 	def index
 	  @parents = Category.all.order("id ASC").limit(13)
@@ -41,3 +42,9 @@ end
 # 	#User_id/category_idなどが取れたら別途実装します。
 # 	#とりあえず新着アイテムで実装します
 # end
+
+private
+def set_search_items
+	@search = Item.ransack(params[:q])
+	@search_items = @search.result.order("id DESC").page(params[:page]).per(15)
+end

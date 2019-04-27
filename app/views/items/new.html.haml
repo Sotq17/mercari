@@ -79,7 +79,7 @@
                   = f.collection_select :region_id, Region.all,:id, :name, {include_blank: '---'}, {required: 'true', autofocus: 'true', class: 'exhibit__select__default'}
               .exhibit__contents__box__groups__2
                 %lavel.exhibit__upload__head
-                  発想の方法
+                  発送の方法
                   %span.exhibit__upload__head__require 必須
                 .exhibit__select
                   = f.collection_select :way_id, Way.all, :id, :name, {include_blank: '---'}, {required: 'true', autofocus: 'true', class: 'exhibit__select__default'}

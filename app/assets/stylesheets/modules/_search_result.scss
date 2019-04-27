@@ -1,13 +1,14 @@
 .result{
 	padding:40px 210px 80px;
 	color: #333333;
-	
+	min-height: 700px;
 	&__left{
 		background-color: white;
 		width: 300px;
+		float: left;
 	}
 	&__right{
-		padding-left: 300px;
+		padding-left: 305px;
 		&__title{
 			font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 			padding-left:15px;
