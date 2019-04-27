@@ -5,13 +5,13 @@
         = link_to root_path do
           %img{alt: "mercari", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?228111635"}/
       .header__top__search
-        = form_tag(search_items_path, method: :get, class: "header__top__search__box") do
-          %input.header__top__search__box__input{name: "keyword", placeholder: "何かお探しですか？", type: "search"}/
-          %button.header__top__search__box__submit{type: "submit"}= fa_icon ("search lg")
-          %form{"accept-charset" => "utf-8", :action => "/", :method => "get"}
+        = search_form_for @search, class: "header__top__search__box", url: search_items_path do |f|
+          = f.text_field :name_cont, class: "header__top__search__box__input", placeholder: "何かお探しですか？"
+          = button_tag type: 'submit', class: "header__top__search__box__submit" do
+            = fa_icon ("search lg")
     .header__bottom
-      .header__bottom__leftside{"v-on:mouseleave": "hiddenMenu"}
-        .header__bottom__leftside__left_box{"v-on:mouseover": "showMenu","v-on:mouseleave": "hiddenCategory"}
+      .header__bottom__leftside{"v-on:mouseleave": "hiddenCategory"}
+        .header__bottom__leftside__left_box{"v-on:mouseleave": "hiddenCategory", "v-on:mouseleave": "hiddenMenu", "v-on:mouseover": "showMenu"}
           = link_to categories_path, class: "header__bottom__leftside__left_box__content" do
             = fa_icon ("list-ul")
             %span カテゴリから探す

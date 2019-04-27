@@ -1,0 +1,95 @@
+.ransack
+  = search_form_for @search, url: search_items_path do |f|
+    .ransack__container
+      -# ソート系
+      .ransack__container__sort
+        .ransack__container__sort__selectbox
+          %select.ransack__container__sort__selectbox__select{:name => "sort_order"}
+            %option{:value => ""} 並び替え
+            %option{:value => "price_asc"}
+              価格の安い順
+            %option{:value => "price_desc"}
+              価格の高い順
+            %option{:value => "created_asc"}
+              出品の古い順
+            %option{:value => "created_desc"}
+              出品の新しい順
+            %option{:value => "like_desc"}
+              いいね!の多い順
+          %i.ransack__container__sort__selectbox__icon= fa_icon ("chevron-down")
+
+
+      -# 絞り込み検索
+      .ransack__container__contents
+        %h3.ransack__container__contents__title 詳細検索
+        .ransack__container__contents__title__keyword
+          .ransack__container__contents__title__keyword__title_box
+            %i= fa_icon ("plus lg")
+            %label キーワードを追加する
+            = f.text_field :name_cont, class: "ransack__text__field", placeholder: "例）値下げ"
+        .ransack__container__contents__form
+          .ransack__container__contents__form__title_box
+            %i= fa_icon ("list lg")
+            %label カテゴリーを選択する
+          .ransack__container__contents__form__select
+            = f.collection_select :categories_id_eq, @parents, :id, :name,{required: 'true', autofocus: 'true', name: 'id', :include_blank => '---'},{class: 'ransack__container__contents__form__select__parent'}
+            -# %i.ransack__select__icon= fa_icon ("chevron-down")
+          .ransack__container__contents__form__select
+            = f.collection_select :categories_id_eq, {}, :id, :name, {required: 'true', autofocus: 'true', name: 'id',:include_blank => '---'},{class: 'ransack__container__contents__form__select__child'}
+            -# %i.ransack__select__icon= fa_icon ("chevron-down")
+          .ransack__container__contents__form__select
+            = f.collection_select :categories_id_eq, {}, :id, :name, {required: 'true', autofocus: 'true', name: 'id', :include_blank => '---'},{class: 'ransack__container__contents__form__select__grandchild'}
+            -# %i.ransack__select__icon= fa_icon ("chevron-down")
+            %i= fa_icon ("expand lg")
+            %label サイズを指定する
+          .ransack__container__contents__form__select
+            = f.collection_select :size_id_eq, Size.all, :id, :name,{required: 'true', autofocus: 'true',:include_blank => '---'},{class: 'ransack__select__default'}
+            -# %i.ransack__select__icon= fa_icon ("chevron-down")
+          .ransack__container__contents__form__select
+            %i= fa_icon ("money lg")
+            %label 価格帯を指定する
+            .ransack__container__contents__form__select__price
+              = f.label :price_gteq, "最低価格"
+              = f.number_field :price_gteq, class: "ransack__text__numfield"
+              = f.label :price_lteq, "最高価格"
+              = f.number_field :price_lteq, class: "ransack__text__numfield"
+              -# %i.ransack__select__icon= fa_icon ("chevron-down")
+          .ransack__container__contents__form__select
+            %label
+              %i= fa_icon ("star lg")
+              %span 商品の状態
+            %div
+              = f.collection_select :state_id_eq, State.all, :id, :name,{required: 'true', autofocus: 'true',:include_blank => '---'},{class: 'ransack__container__contents__form__select__state'}
+          .ransack__container__contents__form__select
+            %label
+              %i= fa_icon ("truck lg")
+              %span 配送料の負担
+            %div
+              = f.collection_select :fee_side_id_eq, FeeSide.all, :id, :name,{required: 'true', autofocus: 'true',:include_blank => '---'}, {class: 'ransack__container__contents__form__select__feeside'}
+          .ransack__container__contents__form__select
+            %label
+              %i= fa_icon ("shopping-cart lg")
+              %span 販売状況
+            %div
+              .ransack__container__contents__checkbox
+                %input#status_all{"data-search" => "all", :name => "status_all", :type => "checkbox", :value => "1"}/
+                %label{:for => "status_all"} すべて
+              .ransack__container__contents__checkbox
+                %input#status_on_sale{:name => "status_on_sale", :type => "checkbox", :value => "1"}/
+                %label{:for => "status_on_sale"} 販売中
+              .ransack__container__contents__checkbox
+                %input#status_trading_sold_out{:name => "status_trading_sold_out", :type => "checkbox", :value => "1"}/
+                %label{:for => "status_trading_sold_out"} 売り切れ
+          .ransack__container__contents__btns
+            %button.ransack__container__contents__btns__reset クリア
+            = f.submit class: "ransack__container__contents__btns__done"
+
+
+      -# .ransack-search__container__contents__brand
+      -#   %label
+      -#     %span ブランド名から探す
+      -#   = f.text_field :name_cont, class: "ansack-search__container__contents__title__input", placeholder: "例）値下げ"
+      -#   %input.ransack-search__container__contents__brand__input{"data-search" => "brand", :name => "brand_name", :placeholder => "例）シャネル", :type => "text", :value => ""}/
+      -#   %input{:name => "brand_id", :type => "hidden", :value => ""}/
+      -#   %ul{"data-search" => "brand-dom"}
+      -#   .ransack-search__container__contents__brand__form-group
