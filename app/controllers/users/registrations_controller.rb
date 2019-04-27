@@ -13,7 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:registrations, keys: [:email, :password, :nickname, :last_name, :first_name, :first_kana, :last_kana, :birth_year_id, :birth_month_id, :birth_day_id, :postal_code, :region_id, :city, :adress, :phone, :building, :card_number, :security_code, :expiration_year_id, :expiration_month_id])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :nickname, :last_name, :first_name, :first_kana, :last_kana, :birth_year_id, :birth_month_id, :birth_day_id, :postal_code, :region_id, :city, :adress, :phone, :building, :card_number, :security_code, :expiration_year_id, :expiration_month_id])
   end
 
   private
