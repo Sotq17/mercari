@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, skip: :all,  :controllers => {
-    :registrations => 'users/registrations'
+    :registrations => 'users/registrations',
+    :sessions => 'users/sessions'
   }
   #  devise_scope :user do
   #   get "sign_up", :to => "users/registrations#information"
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   get 'signup' => 'users/registrations#new'
   get 'registrations' => 'users/registrations#input_info'
   post 'create' => 'users/registrations#create'
+  get 'signin' => 'users/sessions#index'
   delete 'logout' => 'users/sessions#destroy'
 end
   namespace :api do
