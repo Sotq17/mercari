@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
 
-	  belongs_to :user, foreign_key: 'user_id',optional: true
+	  belongs_to :user, foreign_key: 'user_id'
     belongs_to :brand,foreign_key: 'brand_id', optional: true
     has_many   :categories,through: :item_categories
     has_many   :comments

@@ -1,5 +1,4 @@
 class Users::SessionsController < Devise::SessionsController
-	 before_action :configure_permitted_parameters
   def index
   	@user = User.new
   end
