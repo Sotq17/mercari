@@ -1,14 +1,14 @@
 $(function(){
   $(".ransack__container__contents__form__select__child").click(function(){
-  $('.ransack__container__contents__form__select__child').prop('name', 'item[category_ids]');
+  $('.ransack__container__contents__form__select__child').prop('name', 'q[categories_id_eq]');
   });
   $(".ransack__container__contents__form__select__grandchild").click(function(){
-  $('.ransack__container__contents__form__select__grandchild').prop('name', 'item[category_ids]');
+  $('.ransack__container__contents__form__select__grandchild').prop('name', 'q[categories_id_eq]');
   });
 });
 // 検索ボタン
 $(function(){
-  $(".ransack__container__contents__btns__done").mouseover(function(){
+  $(".ransack__container__contents__btns__done").mouseover(function(e){
   e.preventDefault();
   var input = $(".ransack__container__contents__form__select__child").val();
   var inputs = $(".ransack__container__contents__form__select__grandchild").val();
@@ -20,6 +20,7 @@ $(function(){
     }
   });
 });
+
 // リセットボタン
 
 $(function () {
@@ -66,7 +67,7 @@ $(function(){
 
   $(".ransack__container__contents__form__select__parent").change(function(e){
     e.preventDefault();
-  	var input = $("#q_categories_id_eq").val();
+   var input = $("#q_categories_id_eq").val();
     $('.ransack__container__contents__form__select__child').fadeOut(5);
     $('.ransack__container__contents__form__select__grandchild').fadeOut(5);
     $('.ransack__container__contents__form__select__child').empty();

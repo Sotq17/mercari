@@ -18,7 +18,6 @@
               いいね!の多い順
           %i.ransack__container__sort__selectbox__icon= fa_icon ("chevron-down")
 
-
       -# 絞り込み検索
       .ransack__container__contents
         %h3.ransack__container__contents__title 詳細検索
@@ -33,27 +32,22 @@
             %label カテゴリーを選択する
           .ransack__container__contents__form__select
             = f.collection_select :categories_id_eq, @parents, :id, :name,{required: 'true', autofocus: 'true', name: 'id', :include_blank => '---'},{class: 'ransack__container__contents__form__select__parent'}
-            -# %i.ransack__select__icon= fa_icon ("chevron-down")
           .ransack__container__contents__form__select
             = f.collection_select :categories_id_eq, {}, :id, :name, {required: 'true', autofocus: 'true', name: 'id',:include_blank => '---'},{class: 'ransack__container__contents__form__select__child'}
-            -# %i.ransack__select__icon= fa_icon ("chevron-down")
           .ransack__container__contents__form__select
             = f.collection_select :categories_id_eq, {}, :id, :name, {required: 'true', autofocus: 'true', name: 'id', :include_blank => '---'},{class: 'ransack__container__contents__form__select__grandchild'}
-            -# %i.ransack__select__icon= fa_icon ("chevron-down")
             %i= fa_icon ("expand lg")
             %label サイズを指定する
           .ransack__container__contents__form__select
             = f.collection_select :size_id_eq, Size.all, :id, :name,{required: 'true', autofocus: 'true',:include_blank => '---'},{class: 'ransack__select__default'}
-            -# %i.ransack__select__icon= fa_icon ("chevron-down")
           .ransack__container__contents__form__select
             %i= fa_icon ("money lg")
             %label 価格帯を指定する
             .ransack__container__contents__form__select__price
               = f.label :price_gteq, "最低価格"
-              = f.number_field :price_gteq, class: "ransack__text__numfield"
+              = f.number_field :price_gteq, class: "ransack__text__numfield", placeholder: "min~"
               = f.label :price_lteq, "最高価格"
-              = f.number_field :price_lteq, class: "ransack__text__numfield"
-              -# %i.ransack__select__icon= fa_icon ("chevron-down")
+              = f.number_field :price_lteq, class: "ransack__text__numfield", placeholder: "~max"
           .ransack__container__contents__form__select
             %label
               %i= fa_icon ("star lg")
@@ -84,7 +78,7 @@
             %button.ransack__container__contents__btns__reset クリア
             = f.submit class: "ransack__container__contents__btns__done"
 
-
+      -# ブランド機能は未実装のためとりあえずコメントアウトしておきます
       -# .ransack-search__container__contents__brand
       -#   %label
       -#     %span ブランド名から探す

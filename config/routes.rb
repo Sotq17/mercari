@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :users, skip: :all,  :controllers => {
-    :registrations => 'users/registrations'
-  }
-  #  devise_scope :user do
-  #   get "sign_up", :to => "users/registrations#information"
-  # end
-    devise_scope :user do
-  get 'signup' => 'users/registrations#new'
-  get 'registrations' => 'users/registrations#input_info'
-  post 'create' => 'users/registrations#create'
-  delete 'logout' => 'users/sessions#destroy'
-end
+   devise_for :users
+   # , skip: :all,  :controllers => {
+#     :registrations => 'users/registrations',
+#     :sessions => 'users/sessions'
+#   }
+#   #  devise_scope :user do
+#   #   get "sign_up", :to => "users/registrations#information"
+#   # end
+#     devise_scope :user do
+#   get 'signup' => 'users/registrations#new'
+#   get 'registrations' => 'users/registrations#input_info'
+#   post 'create' => 'users/registrations#create'
+#   get 'signin' => 'users/sessions#index'
+#   delete 'logout' => 'users/sessions#destroy'
+# end
   namespace :api do
     resources :genres, only: [:index,:show]
   end
