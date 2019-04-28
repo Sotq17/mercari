@@ -24,8 +24,7 @@ class ItemsController < ApplicationController
     @items = Item.order("id DESC").limit(6).includes(:photos)
     item = Item.find(params[:id])
     @item_categories = item.item_categories
-  #User_id/category_idなどが取れたら別途実装します。
-  #とりあえず新着アイテムで実装します
+  #User_idが取れたら別途実装します。
  end
 
   def new
@@ -83,14 +82,3 @@ class ItemsController < ApplicationController
     @search_items = @search.result.includes(:categories).order("id DESC").page(params[:page]).per(15)
   end
 end
-
-
-
-
-# http://localhost:3000/items/search?utf8=%E2%9C%93&sort_order=&q%5Bname_cont%5D=&item%5Bcategory_ids%5D=108&q%5Bsize_id_eq%5D=&q%5Bprice_gteq%5D=&q%5Bprice_lteq%5D=&q%5Bstate_id_eq%5D=&q%5Bfee_side_id_eq%5D=&commit=Search
-# http://localhost:3000/items/search?utf8=%E2%9C%93&sort_order=&q%5Bname_cont%5D=&item%5Bcategory_ids%5D=20&q%5Bsize_id_eq%5D=&q%5Bprice_gteq%5D=&q%5Bprice_lteq%5D=&q%5Bstate_id_eq%5D=&q%5Bfee_side_id_eq%5D=&commit=Search
-
-# http://localhost:3000/items/search?utf8=%E2%9C%93&sort_order=&q%5Bname_cont%5D=&q%5Bcategories_id_eq%5D=1&item%5Bcategory_ids%5D=14&item%5Bcategory_ids%5D=20&q%5Bsize_id_eq%5D=&q%5Bprice_gteq%5D=&q%5Bprice_lteq%5D=&q%5Bstate_id_eq%5D=&q%5Bfee_side_id_eq%5D=&commit=Search
-# http://localhost:3000/items/search?utf8=%E2%9C%93&sort_order=&q%5Bname_cont%5D=&q%5Bcategories_id_eq%5D=1&item%5Bcategory_ids%5D=14&item%5Bcategory_ids%5D=20&q%5Bsize_id_eq%5D=&q%5Bprice_gteq%5D=&q%5Bprice_lteq%5D=&q%5Bstate_id_eq%5D=&q%5Bfee_side_id_eq%5D=&commit=Search
-# http://localhost:3000/items/search?utf8=%E2%9C%93&sort_order=&q%5Bname_cont%5D=&item%5Bcategory_ids%5D=20&q%5Bsize_id_eq%5D=&q%5Bprice_gteq%5D=&q%5Bprice_lteq%5D=&q%5Bstate_id_eq%5D=&q%5Bfee_side_id_eq%5D=&commit=Search
-# http://localhost:3000/items/search?utf8=%E2%9C%93&sort_order=&q%5Bname_cont%5D=&q%5Bcategories_id_eq%5D=1&q%5Bsize_id_eq%5D=&q%5Bprice_gteq%5D=&q%5Bprice_lteq%5D=&q%5Bstate_id_eq%5D=&q%5Bfee_side_id_eq%5D=&commit=Search
