@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20190428060448) do
     t.integer  "region_id",                 null: false
     t.integer  "way_id",                    null: false
     t.integer  "day_id",                    null: false
-    t.integer  "buyer_id"
     t.index ["name"], name: "index_items_on_name", using: :btree
   end
 
