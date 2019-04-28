@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20190417053816) do
+ActiveRecord::Schema.define(version: 20190428060448) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -42,6 +41,7 @@ ActiveRecord::Schema.define(version: 20190417053816) do
     t.integer  "region_id",                 null: false
     t.integer  "way_id",                    null: false
     t.integer  "day_id",                    null: false
+    t.integer  "buyer_id"
     t.index ["name"], name: "index_items_on_name", using: :btree
   end
 
@@ -65,8 +65,6 @@ ActiveRecord::Schema.define(version: 20190417053816) do
     t.integer  "point"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
-    t.string   "uid"
-    t.string   "provider"
     t.integer  "birth_year_id",                                     null: false
     t.integer  "birth_month_id",                                    null: false
     t.integer  "birth_day_id",                                      null: false
@@ -80,10 +78,6 @@ ActiveRecord::Schema.define(version: 20190417053816) do
     t.string   "city",                                              null: false
     t.integer  "phone",                                             null: false
     t.integer  "region_id",                                         null: false
-    t.integer  "card_number",                                       null: false
-    t.integer  "security_code",                                     null: false
-    t.integer  "expiration_year_id",                                null: false
-    t.integer  "expiration_month_id",                               null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

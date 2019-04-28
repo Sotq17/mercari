@@ -1,0 +1,22 @@
+.sign__out{
+	width: 700px;
+	height: 179px;
+	background-color: white;
+	display: block;
+  &__box{
+    width: 572px;
+    height: 50px;
+    padding: 64px;
+      &__name{
+        max-width: 320px;
+        margin: 0 auto;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        background-color: #ea352d;
+        color: white;
+        font-size: 14px;
+
+    }
+  }
+}

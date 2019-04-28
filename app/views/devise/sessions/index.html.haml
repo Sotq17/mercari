@@ -4,13 +4,13 @@
     %a{href: "/", class: "new-header_logo"}
       = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1499590657', class: 'exhibit__header__image', alt: "mercari"
   .input_main
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  = form_for(resource, as: resource_name, url: root_path(resource_name)) do |f|
     .head
       .head_contents
         %p.head_contents_text
           アカウントをお持ちでない方はこちら
-        = link_to new_user_registration_path do
-          .head_contents_button
+        = link_to new_user_registration do
+          %button.head_contents_button
             新規会員登録
     .contents
       .contents_sns
@@ -35,5 +35,3 @@
         = f.submit('ログイン', class: "complete")
   .footer
     = render 'items/exhibit@footer'
-
-= render "devise/shared/links"
