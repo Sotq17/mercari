@@ -7,38 +7,28 @@ class ItemsController < ApplicationController
   def index
     @items = Item.order("id DESC").limit(4).includes(:photos)
     @parents = Category.all.order("id ASC").limit(13)
-	end
+ end
 
   def search
-    # @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").order("id DESC").page(params[:page]).per(15)
-		# 	if params[:keyword] == ""
-		# 		redirect_to '/items/search?utf8=✓&keyword=+++'
-		# 	end
-		# 	if @items.count == 0
-		# 		@all_items = Item.limit(25).order("id DESC")
-    #   end
-
-    # @search = Item.ransack(name_matches: "%#{params[:keyword]}%",size_id_matches: "%#{params[:p]}%",state_id_matches: "%#{params[:p]}%",fee_side_id_matches: "%#{params[:p]}%",way_id_matches: "%#{params[:p]}%")
-    if params[:q] == {"name_cont"=>""}
-      redirect_to '/items/search/'
+    if params[:q] == {"name_cont": ""}
+      @search_items = Item.none
     end
     if @search_items.count == 0
       @all_items = Item.limit(25).order("id DESC")
     end
     @parents = Category.all.order("id ASC").limit(13)
     # binding.pry
-	end
+ end
 
-	def show
+ def show
     @items = Item.order("id DESC").limit(6).includes(:photos)
     item = Item.find(params[:id])
     @item_categories = item.item_categories
-		#User_id/category_idなどが取れたら別途実装します。
-		#とりあえず新着アイテムで実装します
-	end
+  #User_idが取れたら別途実装します。
+ end
 
   def new
-  	@item = Item.new
+   @item = Item.new
     10.times{@item.photos.build}
     @parents = Category.all.order("id ASC").limit(13)
     3.times{@item.item_categories.build}
@@ -46,7 +36,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-  	@item = Item.new(create_params)
+   @item = Item.new(create_params)
       if @item.save
         redirect_to root_path
       else
