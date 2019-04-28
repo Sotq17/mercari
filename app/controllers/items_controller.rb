@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action  :set_parents, only: [:index, :show, :search]
 
   before_action  :set_search_items
+  before_action :authenticate_user!, only: :new
 
   def index
     @items = Item.order("id DESC").limit(4).includes(:photos)
@@ -70,7 +71,7 @@ class ItemsController < ApplicationController
 
   private
   def create_params
-      params.require(:item).permit(:name, :description, :price, :size_id, :state_id, :fee_side_id, :way_id, :region_id, :day_id, :category_ids, photos_attributes: [:image])
+      params.require(:item).permit(:name, :description, :price, :size_id, :state_id, :fee_side_id, :way_id, :region_id, :day_id, :category_ids, photos_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def set_parents
