@@ -1,9 +1,16 @@
 = render 'items/header'
 
+
 .bread_crumbs
 	.bread_crumbs__text
-		- breadcrumb :show_categories, @categories
-		= breadcrumbs separator: "&rsaquo;"
+		- if @categories.ancestry == nil
+			- breadcrumb :show_categories1
+		- elsif @categories.has_children?
+			- breadcrumb :show_categories2
+		- else
+			- breadcrumb :show_categories3
+		= breadcrumbs separator: " #{content_tag(:i, '', :class=>'fa fa-angle-right')} "
+
 
 .category_show_result
 	.category_show_result__next_category
@@ -13,25 +20,27 @@
 	.category_show_result__title
 		.category_show__result__title__text
 			="#{@categories.name}の商品一覧"
+
 	.category_show_result__user_pickup-category__box__items
-		- @item_categories.each do |item_category|
-			.category_show_result__user_pickup-category__box__items__item
-				= link_to "/items/#{item_category.item.id}", method: :get do
-					.category_show_result__user_pickup-category__box__items__item__photo
-						- item_category.item.photos.first(1).each do |photo|
-							= image_tag photo.image.url
-					.category_show_result__user_pickup-category__box__items__item__body
-						.category_show_result__user_pickup-category__box__items__item__body__title
-							= item_category.item.name
-						.category_show_result__user_pickup-category__box__items__item__body__detail
-							.category_show_result__user_pickup-category__box__items__item__body__detail__price
-								= item_category.item.price
-								円
-							.category_show_result__user_pickup-category__box__items__item__body__detail__like
-								= fa_icon("heart-o")
-								%span= item_category.item.like
-							.category_show_result__user_pickup-category__box__items__item__body__detail__tax
-								(税込)
+		- @search_categories.each do |categories|
+			-categories.items.each do |item|
+				.category_show_result__user_pickup-category__box__items__item
+					= link_to "/items/#{item.id}", method: :get do
+						.category_show_result__user_pickup-category__box__items__item__photo
+							- item.photos.first(1).each do |photo|
+								= image_tag photo.image.url
+						.category_show_result__user_pickup-category__box__items__item__body
+							.category_show_result__user_pickup-category__box__items__item__body__title
+								= item.name
+							.category_show_result__user_pickup-category__box__items__item__body__detail
+								.category_show_result__user_pickup-category__box__items__item__body__detail__price
+									= item.price
+									円
+								.category_show_result__user_pickup-category__box__items__item__body__detail__like
+									= fa_icon("heart-o")
+									%span= item.like
+								.category_show_result__user_pickup-category__box__items__item__body__detail__tax
+									(税込)
 = render 'items/bottom-banner'
 = render 'items/footer'
 = link_to new_item_path,class:"sell_button" do

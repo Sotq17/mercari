@@ -10,7 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
      @user = User.new(create_params)
      @user.save
   end
-  
+
 
 
   private
