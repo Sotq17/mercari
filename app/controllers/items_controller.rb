@@ -2,12 +2,13 @@ class ItemsController < ApplicationController
   before_action  :item_find, except: [:index, :search, :new, :create]
   before_action  :set_parents, only: [:index, :show, :search]
 
-  before_action  :set_search_items
+  before_action  :set_search_items, only: [:search, :show, :index,]
   before_action :authenticate_user!, only: :new
 
   def index
     @items = Item.order("id DESC").limit(4).includes(:photos)
     @parents = Category.all.order("id ASC").limit(13)
+    @pickup_categories = Category.all.order("id ASC").limit(4)
  end
 
   def search
@@ -18,14 +19,12 @@ class ItemsController < ApplicationController
       @all_items = Item.limit(25).order("id DESC")
     end
     @parents = Category.all.order("id ASC").limit(13)
-    # binding.pry
  end
 
  def show
     @items = Item.order("id DESC").limit(6).includes(:photos)
     item = Item.find(params[:id])
     @item_categories = item.item_categories
-  #User_idが取れたら別途実装します。
  end
 
   def new
