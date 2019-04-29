@@ -1,4 +1,227 @@
-%p hello world!
+= render 'items/header'
+
+.bread_crumbs
+	.bread_crumbs__text
+		-breadcrumb :show_users, @user
+		= breadcrumbs separator: " #{content_tag(:i, '', :class=>'fa fa-angle-right')} "
+
+.mypage
+	.mypage__main
+		.mypage__main__icon
+			.mypage__main__icon__number
+				%div
+					評価
+					%span.bold 1
+				%div
+					出品数
+					%span.bold 1
+		%section.mypage__main__box
+			%ul.mypage__main__box__notification
+				%li.active
+					%h3
+						%a{"data-toggle" => "tab", :href => ""}
+							お知らせ
+				%li
+					%h3
+						%a{"data-toggle" => "tab", :href => "#mypage-tab-todo"}
+							やることリスト
+			.tab-content
+				%ul#mypage-tab-notification.mypage-item-list.tab-pane.active
+					%li
+						%a.mypage-item-link{:href => "https://www.mercari.com/jp/transaction/order_status/m92918580107/"}
+							%figure
+								%img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/thumb/photos/m92918580107_1.jpg?1554820553"}/
+							.mypage-item-body
+								.mypage-item-text
+								%time
+									%i.icon-time
+									%span 1 日前
+							%i.icon-arrow-right
+					%li
+						%a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+							%figure
+								%img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png"}/
+							.mypage-item-body
+								.mypage-item-text 事務局から個別メッセージ「ログイン通知」
+								%time
+									%i.icon-time
+									%span 1 日前
+							%i.icon-arrow-right
+					%li
+						%a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", :href => ""}
+							%figure
+								%img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png"}/
+							.mypage-item-body
+								.mypage-item-text 《参加ボタンを押すだけ》最大P1,500がもらえるウルトラキャンペーンに参加しよう！
+								%time
+									%i.icon-time
+									%span 1 日前
+							%i.icon-arrow-right
+					%li
+						%a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", :href => ""}
+							%figure
+								%img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png"}/
+							.mypage-item-body
+								.mypage-item-text 《本日開始！》GW半額ポイント還元や竹下メルペイ通りなど！連休はメルペイがお得
+								%time
+									%i.icon-time
+									%span 2 日前
+							%i.icon-arrow-right
+					%li
+						%a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+							%figure
+								%img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png"}/
+							.mypage-item-body
+								.mypage-item-text 事務局から個別メッセージ「ログイン通知」
+								%time
+									%i.icon-time
+									%span 3 日前
+							%i.icon-arrow-right
+					%li.mypage-go-list
+						%a{:href => "/jp/mypage/notification/"} 一覧を見る
+				%ul#mypage-tab-todo.mypage-item-list.tab-pane
+					%li
+						%a.mypage-item-link{:href => "https://www.mercari.com/jp/transaction/order_status/m92918580107/"}
+							%figure
+								%img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/c!/w=240/thumb/photos/m92918580107_1.jpg?1554820553"}/
+							.mypage-item-body
+								.mypage-item-text 
+								%time
+									%i.icon-time
+									%span 18 時間前
+							%i.icon-arrow-right
+					%li.mypage-go-list
+						%a{:href => "/jp/mypage/todo/"} 一覧を見る
+		%aside.modal{"data-close" => "modal", "data-modal" => "banner"}
+		%section.mypage-tab-container
+			%h2.mypage-tab-head 購入した商品
+			%ul.mypage-tabs
+				%li.active
+					%h3
+						%a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-now"}
+							取引中
+				%li
+					%h3
+						%a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-old"}
+							過去の取引
+			.tab-content
+				%ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+					%li
+						%a.mypage-item-link{:href => "https://www.mercari.com/jp/transaction/order_status/m92918580107/"}
+							%figure
+								%img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/thumb/photos/m92918580107_1.jpg?1554820553"}/
+							.mypage-item-body
+								.mypage-item-text
+									%span 受取評価をしてください
+								.mypage-item-status.bold.action-required
+									受取評価待ち
+							%i.icon-arrow-right
+					%li.mypage-go-list
+						%a{:href => "/jp/mypage/purchase/"} 一覧を見る
+				%ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
+					%li
+						%a.mypage-item-link{:href => "https://www.mercari.com/jp/transaction/order_status/m35253347142/"}
+							%figure
+								%img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/thumb/photos/m35253347142_1.jpg?1544844476"}/
+							.mypage-item-body
+								.mypage-item-text
+									%span 
+								.mypage-item-status.bold.done
+									取引完了
+							%i.icon-arrow-right
+					%li.mypage-go-list
+						%a{:href => "/jp/mypage/purchased/"} 一覧を見る
+
+	.mypage__side
+		.mypage-side__box
+			%ul.mypage__side__box__ul
+				%li
+					= link_to "", method: :get do
+						マイページ
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						お知らせ
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						マイページ
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						いいね一覧
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						出品する
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						出品した商品 - 出品中
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						出品した商品 - 取引中
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						出品した商品 - 取引済
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						購入した商品 - 取引中
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						購入した商品 - 取引済
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						ニュース一覧
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						評価一覧
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						ガイド
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						お問い合わせ
+						= fa_icon("arrow-right")
+
+			%h3.mypage__side__box__title 設定
+			%ul.mypage__side__box__ul
+				%li
+					= link_to "", method: :get do
+						プロフィール
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						発送元・お届け先住所変更
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						支払い方法
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						メール・パスワード
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						本人情報
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						電話番号の確認
+						= fa_icon("arrow-right")
+				%li
+					= link_to "", method: :get do
+						ログアウト
+						= fa_icon("arrow-right")
 
 = render 'items/bottom-banner'
 = render 'items/footer'

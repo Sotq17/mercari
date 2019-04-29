@@ -34,15 +34,30 @@
 					%table
 						%tr
 							%th 出品者
-							-# %td=@item.size.name
-							%td="---"
+							%td=@item.user.nickname
 						%tr
 							%th カテゴリー
-							%td
+							%td.individual__items__item__top__detail__category
 								- @item_categories.each do |item_category|
-									= link_to "/categories/#{item_category.category.id}", method: :get do
-										=item_category.category.name
-						%tr
+									-if item_category.category.ancestry == nil
+										= link_to "/categories/#{item_category.category.id}", method: :get do
+											=item_category.category.name
+									-elsif item_category.category.parent.has_parent?
+										= link_to "/categories/#{item_category.category.parent.parent.id}", method: :get do
+											=item_category.category.parent.parent.name
+										= link_to "/categories/#{item_category.category.parent.id}", method: :get do
+											= fa_icon("chevron-right")
+											=item_category.category.parent.name
+										= link_to "/categories/#{item_category.category.id}", method: :get do
+											= fa_icon("chevron-right")
+											=item_category.category.name
+									-else
+										= link_to "/categories/#{item_category.category.parent.id}", method: :get do
+											=item_category.category.parent.name
+										= link_to "/categories/#{item_category.category.id}", method: :get do
+											= fa_icon("chevron-right")
+											=item_category.category.name
+							%tr
 							%th ブランド
 							-# %td=@item.size.name
 							%td="---"
@@ -116,8 +131,7 @@
 					= fa_icon("pinterest-square 3x")
 	.individual_button 削除
 
-= render 'show_other_items'
-= render 'show_other_items'
+= render partial: 'show_other_items', locals: { item: @item }
 -# #User_id/category_idなどが取れたら別途実装します。
 -# #とりあえず新着アイテムで実装します
 = render 'bottom-banner'
