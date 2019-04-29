@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20190428060448) do
     t.integer  "region_id",                 null: false
     t.integer  "way_id",                    null: false
     t.integer  "day_id",                    null: false
-    t.integer  "buyer_id"
     t.index ["name"], name: "index_items_on_name", using: :btree
   end
 
@@ -65,6 +64,8 @@ ActiveRecord::Schema.define(version: 20190428060448) do
     t.integer  "point"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
+    t.string   "uid"
+    t.string   "provider"
     t.integer  "birth_year_id",                                     null: false
     t.integer  "birth_month_id",                                    null: false
     t.integer  "birth_day_id",                                      null: false
