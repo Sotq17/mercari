@@ -41,21 +41,31 @@
           = link_to '', class: "header__bottom_box__leftside__right_box__content" do
             = fa_icon ("tag")
             %span ブランドから探す
-      .header__bottom__rightside
-        .header__bottom__rightside__bell
-          = link_to '', class: "header__bottom__rightside__bell__content" do
-            = fa_icon("bell lg")
-            %span お知らせ
-        .header__bottom__rightside__check
-          = link_to user_path(current_user.id), class: "header__bottom__rightside__check__content" do
-            %span
-              = fa_icon("check lg")
-              %span やることリスト
-        .header__bottom__rightside__mypage
-          = link_to user_path(current_user.id), class: "header__bottom__rightside__mypage__content" do
-            %img.header__bottom__rightside__mypage__content__icon{alt: "", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32"}/
 
-            %div マイページ
+      - if user_signed_in?
+        .header__bottom__rightside
+          .header__bottom__rightside__bell
+            = link_to '', class: "header__bottom__rightside__bell__content" do
+              = fa_icon("bell lg")
+              %span お知らせ
+          .header__bottom__rightside__check
+            = link_to user_path(current_user.id), class: "header__bottom__rightside__check__content" do
+              %span
+                = fa_icon("check lg")
+                %span やることリスト
+          .header__bottom__rightside__mypage
+            = link_to user_path(current_user.id), class: "header__bottom__rightside__mypage__content" do
+              %img.header__bottom__rightside__mypage__content__icon{alt: "", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32"}/
+              %div マイページ
+              = link_to "ログアウト", destroy_user_session_path, method: :delete
+      - else
+        .header__bottom__rightside
+          .header__bottom__rightside__login
+            = link_to "ログイン", new_user_session_path, class: 'post'
+          .header__bottom__rightside__signup
+            = link_to "新規登録", new_user_registration_path, class: 'post'
+
+
 
   %script{src:"https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"}
   %script{src:"https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"}

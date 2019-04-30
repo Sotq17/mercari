@@ -1,8 +1,28 @@
 .pickup-category__box
-  %h3.pickup-category__box__title
-    = link_to '新着アイテム', ''
-  .pickup-category__box__items
-    - @items.each do |item|
-      = render partial: "item", locals: { item: item }
-  .pickup-category__box__all
-    = link_to '新着アイテム', ''
+  - @pickup_categories.each do |category|
+    %h3.pickup-category__box__title
+      = link_to "#{category.name} 新着アイテム", "/categories/#{category.id}"
+    .pickup-category__box__items
+      - category.subtree.limit(4).each do |category|
+        - category.items.order("created_at DESC").limit(4).each do |item|
+          -# 現状大カテゴリしか拾えません
+          .pickup-category__box__items__item
+            = link_to "/items/#{item.id}", method: :get do
+              .pickup-category__box__items__item__photo
+                - item.photos.first(1).each do |photo|
+                  = image_tag photo.image.url
+              .pickup-category__box__items__item__body
+                .pickup-category__box__items__item__body__title
+                  = item.name
+                .pickup-category__box__items__item__body__detail
+                  .pickup-category__box__items__item__body__detail__price
+                    = item.price
+                    円
+                  .pickup-category__box__items__item__body__detail__like
+                    = fa_icon("heart-o")
+                    %span= item.like
+                  .pickup-category__box__items__item__body__detail__tax
+                    (税込)
+    .pickup-category__box__all
+      = link_to '全ての商品をみる', "/categories/#{category.id}"
+

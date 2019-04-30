@@ -9,7 +9,12 @@ class ItemsController < ApplicationController
     @items = Item.order("id DESC").limit(4).includes(:photos)
     @parents = Category.all.order("id ASC").limit(13)
     @pickup_categories = Category.all.order("id ASC").limit(4)
- end
+    # @ladies_item = Item.whe(category_id: 1).order("created_at DESC").limit(4)
+
+
+    
+
+  end
 
   def search
     if params[:q] == {"name_cont": ""}
@@ -22,11 +27,9 @@ class ItemsController < ApplicationController
  end
 
  def show
-    # @item = Item.find([:item_id])
     @items = Item.order("id DESC").limit(6).includes(:photos)
     @item = Item.find(params[:id])
     @item_categories = @item.item_categories
-  #User_idが取れたら別途実装します。
  end
 
   def new
