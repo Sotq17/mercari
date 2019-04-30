@@ -1,8 +1,9 @@
 .user_pickup-category__box
   %h3.user_pickup-category__box__title
-    = link_to '〇〇さんのその他の商品', ''
+    = link_to "#{item.user.nickname}さんのその他の商品", ''
+    -# マイページへのリンク
   .user_pickup-category__box__items
-    - @items.each do |item|
+    - item.user.items.last(6).each do |item|
       .user_pickup-category__box__items__item
         = link_to "/items/#{item.id}", method: :get do
           .user_pickup-category__box__items__item__photo
@@ -20,4 +21,30 @@
                 %span= item.like
               .user_pickup-category__box__items__item__body__detail__tax
                 (税込)
-  .user_pickup-category__box__all
+
+.user_pickup-category__box__all
+
+  .user_pickup-category__box
+    - item.categories.first(1).each do |category|
+      %h3.user_pickup-category__box__title
+        = link_to "#{category.name}のその他の商品", "/categories/#{category.id}"
+      .user_pickup-category__box__items
+        - category.items.last(6).each do |item|
+          .user_pickup-category__box__items__item
+            = link_to "/items/#{item.id}", method: :get do
+              .user_pickup-category__box__items__item__photo
+                - item.photos.first(1).each do |photo|
+                  = image_tag photo.image.url
+              .user_pickup-category__box__items__item__body
+                .user_pickup-category__box__items__item__body__title
+                  = item.name
+                .user_pickup-category__box__items__item__body__detail
+                  .user_pickup-category__box__items__item__body__detail__price
+                    = item.price
+                    円
+                  .user_pickup-category__box__items__item__body__detail__like
+                    = fa_icon("heart-o")
+                    %span= item.like
+                  .user_pickup-category__box__items__item__body__detail__tax
+                    (税込)
+    .user_pickup-category__box__all

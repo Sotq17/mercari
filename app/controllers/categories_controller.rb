@@ -7,9 +7,8 @@ class CategoriesController < ApplicationController
 	end
 
 	def show
-	  @categories = Category.find(params[:id])
-	  category = Category.find(params[:id])
-	  @item_categories = category.item_categories
+		@categories = Category.find(params[:id])
+		@search_categories = @categories.subtree
 	end
 
 	def set_parents
@@ -34,14 +33,6 @@ class CategoriesController < ApplicationController
       end
     end
 end
-
-# def show
-# 	@items = Item.order("id DESC").limit(6).includes(:photos)
-# 	item = Item.find(params[:id])
-# 	@item_categories = item.item_categories
-# 	#User_id/category_idなどが取れたら別途実装します。
-# 	#とりあえず新着アイテムで実装します
-# end
 
 private
 def set_search_items
