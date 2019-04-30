@@ -27,6 +27,9 @@
 				.category_show_result__user_pickup-category__box__items__item
 					= link_to "/items/#{item.id}", method: :get do
 						.category_show_result__user_pickup-category__box__items__item__photo
+							- if item.buyer_id.present?
+								.item-sold-out-badge
+									%div SOLD
 							- item.photos.first(1).each do |photo|
 								= image_tag photo.image.url
 						.category_show_result__user_pickup-category__box__items__item__body

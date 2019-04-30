@@ -9,6 +9,9 @@
           .pickup-category__box__items__item
             = link_to "/items/#{item.id}", method: :get do
               .pickup-category__box__items__item__photo
+                - if item.buyer_id.present?
+                  .item-sold-out-badge
+                    %div SOLD
                 - item.photos.first(1).each do |photo|
                   = image_tag photo.image.url
               .pickup-category__box__items__item__body
@@ -26,3 +29,13 @@
     .pickup-category__box__all
       = link_to '全ての商品をみる', "/categories/#{category.id}"
 
+
+
+
+      -# - category.subtree.each do |category|
+      -#   - category.items.order("created_at DESC").each do |items|
+      -#   - @itembox = []
+      -#   - @itembox << items
+      -#   - @itembox = @itembox.slice(1..4)
+      -#   - @itembox.each do |item|
+        何も入らない
