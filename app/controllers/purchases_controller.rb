@@ -7,7 +7,7 @@ class PurchasesController < ApplicationController
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
-      redirect_to controller: "card", action: "new"
+      redirect_to controller: "cards", action: "new"
     else
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       #保管した顧客IDでpayjpから情報取得
