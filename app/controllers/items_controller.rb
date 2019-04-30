@@ -53,8 +53,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @items = @item.photos.where(item_id: [params[:id]])
-    10.times{@item.photos.build}
+    @photo = @item.photos.length
+    10-@photo.times{@item.photos.build}
+    @parents = Category.all.order("id ASC").limit(13)
+    3.times{@item.item_categories.build}
+    @item.item_categories.build
   end
 
 
