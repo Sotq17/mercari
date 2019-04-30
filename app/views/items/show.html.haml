@@ -23,6 +23,9 @@
 				=@item.name
 			.individual__items__item__top
 				.individual__items__item__top__imagebox
+					- if @item.buyer_id.present?
+						.item-sold-out-badge
+							%div SOLD
 					.individual__items__item__top__imagebox__image
 						- @item.photos.each do |photo|
 							= image_tag photo.image.url, style: opacity=1
@@ -87,11 +90,14 @@
 					%span.individual__items__item__middle__price__text
 						=@item.fee_side.name
 				.individual__items__item__middle__purchase
-					-# -if current_user.id == @item.user_id
-					-# 	= link_to '編集画面に進む', ''
-					-# - else
-
-					= link_to '購入画面に進む', item_purchases_path(@item),class: 'individual__items__item__middle__purchase__button'
+					- if @item.buyer_id.present?
+						%label.individual__items__item__middle__purchase__button 売り切れました
+					- elsif current_user.id == @item.user_id
+						= link_to 'この商品を編集する', edit_item_path(@item),class: 'individual__items__item__middle__purchase__edit'
+						%h2 or
+						.individual_button この商品を削除する
+					- else
+						= link_to '購入画面に進む', item_purchases_path(@item),class: 'individual__items__item__middle__purchase__button'
 
 			.individual__items__item__bottom
 				.individual__items__item__bottom__description
@@ -103,8 +109,8 @@
 			= form_for "" do |f|
 				-# = f.label :name, "名前"
 				= f.text_area :name , class: 'individual__items__comment__contents__text__comment'
-				= f.submit "Send", class: 'individual__items__comment__contents__text__btn'
-				-# 現段階ではエラーになります（コメントテーブル作成、紐付け後可能）
+				= f.label "Send", class: 'individual__items__comment__contents__text__btn'
+				-# コメント機能未実装のためラベルにしています
 
 	.individual__items__move
 		.individual__items__move__previous
@@ -129,7 +135,6 @@
 			.individual__items__social__box__pinterest
 				=link_to "https://www.pinterest.jp/" do
 					= fa_icon("pinterest-square 3x")
-	.individual_button 削除
 
 = render partial: 'show_other_items', locals: { item: @item }
 -# #User_id/category_idなどが取れたら別途実装します。

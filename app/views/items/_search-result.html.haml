@@ -10,6 +10,9 @@
             .result__right__items__item
               = link_to "/items/#{search_item.id}", method: :get do
                 .result__right__items__item__photo
+                  - if search_item.buyer_id.present?
+                    .item-sold-out-badge
+                      %div SOLD
                   - search_item.photos.first(1).each do |photo|
                     = image_tag photo.image
                 .result__right__items__item__body
@@ -35,6 +38,9 @@
               = link_to "/items/#{all_item.id}", method: :get do
                 .result__right__items__item__photo
                   - all_item.photos.first(1).each do |photo|
+                    - if all_item.buyer_id.present?
+                      .item-sold-out-badge
+                        %div SOLD
                     = image_tag photo.image
                 .result__right__items__item__body
                   .result__right__items__item__body__title
