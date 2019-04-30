@@ -2,7 +2,6 @@
 	margin: 40px auto;
 	color: #333333;
 	width: 700px;
-	
 	&__items{
 		background-color: white;
 		&__item{
@@ -94,7 +93,9 @@
 						font-weight: normal;
 					}
 				}
+
 				&__purchase{
+					padding: 0 20px;
 					&__button{
 						color: #fff;
 						text-decoration: none;
@@ -106,6 +107,27 @@
 						line-height: 56px;
 						text-align: center;
 						font-weight: 600;
+						border-radius: 100px;
+					}
+					&__edit{
+						color: #fff;
+						text-decoration: none;
+						font-size:20px;
+						display: block;
+						height: 56px;
+						margin: 16px 0 0;
+						background: #ea352d;
+						line-height: 56px;
+						text-align: center;
+						font-weight: 600;
+						border-radius: 100px;
+					}
+					h2{
+						display: flex;
+						justify-content: center;
+						padding-top:16px;
+						font-size: 20px;
+						font-weight: bold;
 					}
 				}
 			}
@@ -113,6 +135,7 @@
 				padding: 32px 0 0;
 				&__description{
 					white-space: pre-wrap;
+					padding:20px;
 				}
 			}
 		}
@@ -137,13 +160,13 @@
 						background: #fff;
 						font-size: 16px;
 						line-height: 1.5;
-						margin-top: 10px;
+						margin: 20px 0;
 						textarea{
 							overflow: auto;
 						}
 					}
 					&__btn{
-						margin-top:10px;
+						margin-top:20px;
 						display: block;
 						width: 100%;
 						line-height: 60px;
@@ -156,6 +179,7 @@
 						background: #aaa;
 						border: 1px solid #aaa;
 						color: #fff;
+						border-radius: 100px;
 					}
 				}
 			}
@@ -216,5 +240,42 @@
 				}
 			}
 		}
+	}
+}
+
+.individual_button{
+	color: #fff;
+	text-decoration: none;
+	font-size:20px;
+	display: block;
+	height: 56px;
+	margin: 16px 0 0;
+	background: #AAAAAA;
+	line-height: 56px;
+	text-align: center;
+	font-weight: 600;
+	border-radius: 100px;
+	cursor: pointer;
+}
+
+.item-sold-out-badge{
+	border-width: 120px 120px 0 0;
+	border-color: #ea352d;
+	display: block;
+	position: absolute;
+	z-index: 1;
+	border-style: solid;
+  border-color: #ea352d transparent transparent transparent;
+	div{
+		top: -101px;
+    font-size: 25px;
+		position: absolute;
+    left: -5px;
+    z-index: 2;
+    color: #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    letter-spacing: 2px;
+    font-weight: 500;
 	}
 }

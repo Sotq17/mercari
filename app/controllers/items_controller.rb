@@ -10,10 +10,6 @@ class ItemsController < ApplicationController
     @parents = Category.all.order("id ASC").limit(13)
     @pickup_categories = Category.all.order("id ASC").limit(4)
     # @ladies_item = Item.whe(category_id: 1).order("created_at DESC").limit(4)
-
-
-    
-
   end
 
   def search
@@ -30,6 +26,8 @@ class ItemsController < ApplicationController
     @items = Item.order("id DESC").limit(6).includes(:photos)
     @item = Item.find(params[:id])
     @item_categories = @item.item_categories
+    @user = Item.find(params[:id]).user
+    @users = Item.where(user_id: @user.id)
  end
 
   def new
