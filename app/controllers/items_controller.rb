@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action  :set_parents, only: [:index, :show, :search]
 
   before_action  :set_search_items, only: [:search, :show, :index,]
-  before_action :authenticate_user!, only: [:new, :index]
+  before_action :authenticate_user!, only: [:new]
 
   def index
     @items = Item.order("id DESC").limit(4).includes(:photos)

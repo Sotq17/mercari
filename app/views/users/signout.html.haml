@@ -1,0 +1,14 @@
+= render 'items/header'
+.mypage
+  .mypage__main
+    .mypage__main__icon
+      .mypage__main__icon__number
+        .sign__out
+          ログアウトしますか？
+          .sign__out__box
+            = link_to  "/users/sign_out", method: :delete do
+              .sign__out__box__name  ログアウト
+  = render 'users/user-side-bar'
+
+= render 'items/bottom-banner'
+= render 'items/footer'

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
     devise_for :users
-    resources :users, only: :show
+    resources :users, only: [:show] do
+      collection do
+        get 'signout', to: 'users#signout'
+      end
+    end
 
    # , skip: :all,  :controllers => {
 #     :registrations => 'users/registrations',

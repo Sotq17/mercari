@@ -1,7 +1,11 @@
   class UsersController < ApplicationController
-    before_action  :set_search_items, only: [:show]
-    before_action  :set_parents, only: [:show]
+    before_action  :set_search_items
+    before_action  :set_parents
     def show
+      @card = Card.where(user_id: current_user.id)
+    end
+
+    def signout
       @card = Card.where(user_id: current_user.id)
     end
 
