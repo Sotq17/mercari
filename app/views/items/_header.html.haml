@@ -57,7 +57,6 @@
             = link_to user_path(current_user.id), class: "header__bottom__rightside__mypage__content" do
               %img.header__bottom__rightside__mypage__content__icon{alt: "", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32"}/
               %div マイページ
-              = link_to "ログアウト", destroy_user_session_path, method: :delete
       - else
         .header__bottom__rightside
           .header__bottom__rightside__login
