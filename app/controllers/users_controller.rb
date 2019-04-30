@@ -2,6 +2,7 @@
     before_action  :set_search_items, only: [:show]
     before_action  :set_parents, only: [:show]
     def show
+      @card = Card.where(user_id: current_user.id)
     end
 
     private

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-   devise_for :users
-   resources :users, only: :show
+    devise_for :users
+    resources :users, only: :show
+
    # , skip: :all,  :controllers => {
 #     :registrations => 'users/registrations',
 #     :sessions => 'users/sessions'
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
       get 'search'
       get ':id/buy', to: 'items#buy',  as: :buy
     end
+    resources :purchases, only: [:index, :create]
   end
   #  devise_scope :user do
   #   get 'users/thanks' => 'users/registrations#thanks'
@@ -37,4 +39,14 @@ Rails.application.routes.draw do
       get 'grandchild_search', to: 'categories#grandchild_search'
     end
   end
+
+  resources :cards, only: [:new, :destroy, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      get  'card', to: 'cards#card'
+    end
+  end
+
+
 end

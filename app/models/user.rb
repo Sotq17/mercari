@@ -7,7 +7,9 @@ class User < ApplicationRecord
   has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "user_id", class_name: "Item"
   has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "user_id", class_name: "Item"
 
-  # has_one    :card, optional: true
+  has_one    :card
+  has_many :items, through: :purchases
+  has_many :purchases
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
