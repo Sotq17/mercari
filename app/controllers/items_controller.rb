@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action  :item_find, except: [:index, :search, :new, :create]
+  before_action  :item_find, except: [:index, :search, :new, :create, :show]
   before_action  :set_parents, only: [:index, :show, :search]
 
   before_action  :set_search_items, only: [:search, :show, :index,]
@@ -22,9 +22,11 @@ class ItemsController < ApplicationController
  end
 
  def show
+    # @item = Item.find([:item_id])
     @items = Item.order("id DESC").limit(6).includes(:photos)
-    item = Item.find(params[:id])
-    @item_categories = item.item_categories
+    @item = Item.find(params[:id])
+    @item_categories = @item.item_categories
+  #User_idが取れたら別途実装します。
  end
 
   def new
@@ -61,6 +63,7 @@ class ItemsController < ApplicationController
   end
 
   def buy
+    render template: "purchases/index"
   end
 
   def item_find

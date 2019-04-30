@@ -11,6 +11,8 @@ class Item < ApplicationRecord
 
     validates :name, presence: true
     validates :description,  presence: true
+    has_many :users, through: :purchases
+    has_many :purchases
 
     accepts_nested_attributes_for :photos
   extend ActiveHash::Associations::ActiveRecordExtensions

@@ -1,0 +1,55 @@
+= render 'items/exhibit_header'
+.buy
+  .buy__header
+    購入を確定しますか？
+  .buy__line
+  .buy__main
+    .buy__main__photo
+      - @item.photos.first(1).each do |photo|
+        = image_tag photo.image.url, class: 'buy__main__photo__pc'
+    .buy__main__name
+      = @item.name
+    .buy__main__price
+      .buy__main__price__data
+        = number_to_currency(@item.price, unit: "￥", strip_insignificant_zeros: true)
+      .buy__main__price__way
+        送料込み
+    .buy__main__point
+      ポイントないよ
+    .buy__main__money
+      .buy__main__money__cell
+        支払い金額
+      .buy__main__money__cell
+        = number_to_currency(@item.price, unit: "￥", strip_insignificant_zeros: true)
+    .buy__main__finish
+      = link_to('購入する',"purchases", method: :post)
+  .buy__line__region
+  .buy__region
+    .buy__region__shipping
+      配送先
+    %address.buy__region__address
+      %br
+        住所：〒000-0000　○○県○○市○○町0-0-0
+        ＴＥＬ：000-000-0000<br>
+        ＦＡＸ：000-000-0000
+    %a.buy__region__change{href: '/'}
+      変更する >
+  .buy__way
+    .buy__way__box
+      .buy__way__box__cash
+        .buy__way__box__cash__bond
+          支払方法
+        .buy__way__box__cash__text
+          = "**** **** **** " + @default_card_information.last4
+          %br
+          - exp_month = @default_card_information.exp_month.to_s
+          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          = exp_month + " / " + exp_year
+        .buy__way__box__cash__figure
+      %a.buy__region__change{href: '/'}
+        変更する >
+.sign__out
+  .sign__out__box
+    = link_to  "/users/sign_out", method: :delete do
+      .sign__out__box__name  ログアウト
+= render 'items/exhibit@footer'

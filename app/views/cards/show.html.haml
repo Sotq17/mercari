@@ -1,0 +1,24 @@
+= render 'items/header'
+.mypage
+  .mypage__main
+    .mypage__main__icon
+      .mypage__main__icon__number
+        .card__way
+          .card__way__box
+            .card__way__box__cash
+              .card__way__box__cash__bond
+                支払方法
+              .card__way__box__cash__text
+                = "**** **** **** " + @default_card_information.last4
+                %br
+                - exp_month = @default_card_information.exp_month.to_s
+                - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                = exp_month + " / " + exp_year
+                = render 'cards/card-image'
+                = form_for("/cards/:id", method: :delete, id: 'charge-form',  name: "inputForm") do
+                  %input{ type: "hidden", name: "card_id", value: "" }
+                  %button 消去
+  = render 'users/user-side-bar'
+
+= render 'items/bottom-banner'
+= render 'items/footer'
