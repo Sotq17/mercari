@@ -12,16 +12,13 @@
               %span.exhibit__upload__head__require
                 必須
             %p.exhibit__upload__10 最大10枚までアップロードできます
+            クリックして追加
             .exhibit__upload__dropbox
-              ドラッグ&ドロップまたはクリックしてファイルをアップロード
-              .sell-upload-items-container
-                .sell-upload-items.have-item-0
-                  %ul
-              = f.fields_for :photos, class: 'exhibit__upload__dropbox__items' do |p|
-                - @items.each do |photo|
+              = f.fields_for :photos do |p|
+                .exhibit__upload__dropbox__items
+                  選択
+                  %img.exhibit__upload__dropbox__items__photo
                   =  p.file_field :image, class: 'exhibit__upload__dropbox__items__file'
-                  %pre.exhibit__upload__dropbox__items__pc
-                    :preserve
           .exhibit__content
             .exhibit__content__groups
               %label.exhibit__upload__head
@@ -43,9 +40,13 @@
                   カテゴリー
                   %span.exhibit__upload__head__require
                     必須
-                / %div
-                /   .exhibit__select
-                /   = f.collection_select :size_id, Size.all, :id, :name, {},{required: 'true', autofocus: 'true', class: 'exhibit__select__default'}
+                .exhibit__select
+                  = f.collection_select :category_ids,  @parents, :id, :name, {required: 'true', autofocus: 'true',  name: 'id', :include_blank => '---'},{class: 'exhibit__select__defaults'}
+
+                .exhibit__select
+                  = f.collection_select :category_ids, {}, :id, :name, {required: 'true', autofocus: 'true', name: 'id',:include_blank => '---'},{class: 'exhibit__select__defaults1'}
+                .exhibit__select
+                  = f.collection_select :category_ids, {}, :id, :name, {required: 'true', autofocus: 'true', name: 'id', :include_blank => '---'},{class: 'exhibit__select__defaults2'}
               .exhibit__contents__box__groups__2
                 %lavel.exhibit__upload__head
                   サイズ
