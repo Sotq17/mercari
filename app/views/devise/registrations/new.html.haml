@@ -110,8 +110,7 @@
             必須
           = f.text_field :phone, class: 'form-group_input',  placeholder: "例）098-933-3539"
     .bottom-contents
-      %iframe
-        reCAPTCHA実装予定箇所
+      = recaptcha_tags
       .bottom-contents_group
         %p{class: "ask-agreement", target: "_blank"}
           「完了」のボタンを押すことにより、

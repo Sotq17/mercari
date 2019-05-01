@@ -82,3 +82,4 @@ gem 'webpacker', github: 'rails/webpacker'
 gem 'ransack'
 gem 'payjp'
 gem 'dotenv-rails'
+gem "recaptcha", require: "recaptcha/rails"
