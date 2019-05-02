@@ -95,10 +95,6 @@
 									%i.fa.fa-clock-o
 									%span 3 日前
 							%i.fa.fa-arrow-circle-o-right{"aria-hidden" => "true"}
-				= link_to "", method: :get do
-					%li.mypage-go-list
-						%h3.mypage-go-list_box
-							%a.all_list 一覧を見る
 				%ul
 					%li
 						%a.mypage-item-link
@@ -111,6 +107,10 @@
 									%i.fa.fa-clock-o
 									%span 1 日前
 							%i.fa.fa-arrow-circle-o-right{"aria-hidden" => "true"}
+				= link_to "", method: :get do
+					%li.mypage-go-list
+						%h3.mypage-go-list_box
+							%a.all_list 一覧を見る
 		%section.mypage-tab-container
 			%h1.mypage-tab-head 購入した商品
 			%ul.mypage-tabs
