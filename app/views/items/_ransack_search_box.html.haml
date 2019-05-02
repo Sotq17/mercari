@@ -66,24 +66,11 @@
               %span 販売状況
             %div
               .ransack__container__contents__checkbox
-                %input#status_all{"data-search" => "all", :name => "status_all", :type => "checkbox", :value => "1"}/
-                %label{:for => "status_all"} すべて
+                = f.check_box :buyer_id_null, {},checked_value = "true", unchecked_value = ""
+                %label 販売中
               .ransack__container__contents__checkbox
-                %input#status_on_sale{:name => "status_on_sale", :type => "checkbox", :value => "1"}/
-                %label{:for => "status_on_sale"} 販売中
-              .ransack__container__contents__checkbox
-                %input#status_trading_sold_out{:name => "status_trading_sold_out", :type => "checkbox", :value => "1"}/
-                %label{:for => "status_trading_sold_out"} 売り切れ
+                = f.check_box :buyer_id_not_null, {},checked_value = "true", unchecked_value = ""
+                %label 売り切れ
           .ransack__container__contents__btns
             %button.ransack__container__contents__btns__reset クリア
             = f.submit class: "ransack__container__contents__btns__done"
-
-      -# ブランド機能は未実装のためとりあえずコメントアウトしておきます
-      -# .ransack-search__container__contents__brand
-      -#   %label
-      -#     %span ブランド名から探す
-      -#   = f.text_field :name_cont, class: "ansack-search__container__contents__title__input", placeholder: "例）値下げ"
-      -#   %input.ransack-search__container__contents__brand__input{"data-search" => "brand", :name => "brand_name", :placeholder => "例）シャネル", :type => "text", :value => ""}/
-      -#   %input{:name => "brand_id", :type => "hidden", :value => ""}/
-      -#   %ul{"data-search" => "brand-dom"}
-      -#   .ransack-search__container__contents__brand__form-group

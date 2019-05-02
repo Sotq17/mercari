@@ -21,6 +21,19 @@ $(function(){
   });
 });
 
+// 販売中と販売済両方選択された時
+$(function(){
+  $(".ransack__container__contents__btns__done").click(function(e){
+  var notyet = $("#q_buyer_id_null").attr("checked");
+  var soldout = $("#q_buyer_id_not_null").attr("checked");
+  console.log(notyet),
+  console.log(soldout);
+    if (notyet == "checked" && soldout == "checked"){
+      $("#q_buyer_id_null").removeAttr("checked");
+      $("#q_buyer_id_not_null").removeAttr("checked");
+    }
+  });
+});
 // リセットボタン
 
 $(function () {
