@@ -16,7 +16,7 @@
     private
     def set_search_items
       @search = Item.ransack(params[:q])
-      @search_items = @search.result.order("id DESC").page(params[:page]).per(15)
+      @search_items = @search.result.order("created_at DESC").page(params[:page]).per(15)
     end
 
     def user_find

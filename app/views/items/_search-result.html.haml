@@ -4,7 +4,7 @@
   .result__right
     %h3.result__right__title
       -if @search_items.count > 0
-        = "検索結果 #{@search_items.count}件"
+        = "検索結果 #{@search_items.offset_value}-#{@search_items.offset_value + @search_items.length}件"
         .result__right__items
           - @search_items.each do |search_item|
             .result__right__items__item
@@ -54,27 +54,3 @@
                       %span= all_item.like
                     .result__right__items__item__body__detail__tax
                       (税込)
-
-
-                      -# -elsif @items.count > 0
-      -#   = "検索結果 #{@items.count}件"
-      -#   .result__right__items
-      -#     - @items.each do |item|
-      -#       .result__right__items__item
-      -#         = link_to "/items/#{item.id}", method: :get do
-      -#           .result__right__items__item__photo
-      -#             - item.photos.first(1).each do |photo|
-      -#               = image_tag photo.image
-      -#           .result__right__items__item__body
-      -#             .result__right__items__item__body__title
-      -#               = item.name
-      -#             .result__right__items__item__body__detail
-      -#               .result__right__items__item__body__detail__price
-      -#                 = item.price
-      -#                 円
-      -#               .result__right__items__item__body__detail__like
-      -#                 = fa_icon("heart-o")
-      -#                 %span= item.like
-      -#               .result__right__items__item__body__detail__tax
-      -#                 (税込)
-      -#   = paginate (@items)
