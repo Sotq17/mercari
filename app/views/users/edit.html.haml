@@ -1,0 +1,56 @@
+= render 'items/header'
+.mypage
+  .mypage__main
+    .mypage__main__icon
+      .mypage__main__icon__number
+    .sign__out
+      .sign
+        本人情報の確認
+      = form_for @user do |f|
+        .edit_user_box
+          お客さまの本人情報をご登録ください
+        .edit_user_name
+          %label お名前
+          = @user.nickname
+        .edit_user_name
+          %label お名前カナ
+          = @user.first_kana + @user.last_kana
+        .edit_user_name
+          %label 生年月日
+          = "#{@user.birth_year.name}" +"/"+ "#{@user.birth_month.name}" +"/"+ "#{@user.birth_day.name}"
+        .form-group
+          %label
+            郵便番号
+          %span.must
+            任意
+          = f.text_field :postal_code, class: 'form-group_input',  placeholder: "例）904-0021"
+        .form-group
+          %label
+            都道府県
+          %span.must
+            任意
+        .form-group_birthday
+          = f.collection_select :region_id, Region.all,:id, :name, {}, {required: 'true', autofocus: 'true', class: 'select'}
+        .form-group
+          %label
+            市町村
+          %span.must
+            任意
+          = f.text_field :city, class: 'form-group_input',  placeholder: "例）沖縄市"
+        .form-group
+          %label
+            番地
+          %span.must
+            任意
+          = f.text_field :adress, class: 'form-group_input',  placeholder: "例）胡屋３丁目３８−１"
+        .form-group
+          %label
+            建物
+          %span.any
+            任意
+          = f.text_field :building, class: 'form-group_input',  placeholder: "例）コザ中学校"
+        = submit_tag('登録する')
+  = render 'users/user-side-bar'
+
+= render 'items/bottom-banner'
+= render 'items/footer'
