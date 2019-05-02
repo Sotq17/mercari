@@ -1,10 +1,10 @@
 .pickup-category__box
   - @pickup_categories.each do |category|
     %h3.pickup-category__box__title
-      = link_to "#{category.name} 新着アイテム", "/categories/#{category.id}"
+      = link_to "#{category.name} 新着アイテム", "/categories/#{category.id}", method: :get
     .pickup-category__box__items
-      - category.subtree.limit(4).each do |category|
-        - category.items.order("created_at DESC").limit(4).each do |item|
+      - category.indirects.limit(4).each do |category|
+        - category.items.order("created_at DESC").limit(1).each do |item|
           -# 現状大カテゴリしか拾えません
           .pickup-category__box__items__item
             = link_to "/items/#{item.id}", method: :get do
@@ -27,7 +27,7 @@
                   .pickup-category__box__items__item__body__detail__tax
                     (税込)
     .pickup-category__box__all
-      = link_to '全ての商品をみる', "/categories/#{category.id}"
+      = link_to '全ての商品をみる', "/categories/#{category.id}", method: :get
 
 
 
@@ -39,3 +39,33 @@
       -#   - @itembox = @itembox.slice(1..4)
       -#   - @itembox.each do |item|
         何も入らない
+
+    -#   -arrays = category.items
+    -#   -category.subtree.each do |child|
+    -#     -arrays.push(child.items)
+    -#     -child.children.each do |grandchild|
+    -#       -arrays.push(grandchild.items)
+    -#   -array = arrays.order("created_at DESC").limit(4)
+    -#   -array.each do |item|
+    -#     .pickup-category__box__items__item
+    -#       = link_to "/items/#{item.id}", method: :get do
+    -#         .pickup-category__box__items__item__photo
+    -#           - if item.buyer_id.present?
+    -#             .item-sold-out-badge
+    -#               %div SOLD
+    -#           - item.photos.first(1).each do |photo|
+    -#             = image_tag photo.image.url
+    -#         .pickup-category__box__items__item__body
+    -#           .pickup-category__box__items__item__body__title
+    -#             = item.name
+    -#           .pickup-category__box__items__item__body__detail
+    -#             .pickup-category__box__items__item__body__detail__price
+    -#               = item.price
+    -#               円
+    -#             .pickup-category__box__items__item__body__detail__like
+    -#               = fa_icon("heart-o")
+    -#               %span= item.like
+    -#             .pickup-category__box__items__item__body__detail__tax
+    -#               (税込)
+    -# .pickup-category__box__all
+    -#   = link_to '全ての商品をみる', "/categories/#{category.id}"
