@@ -9,128 +9,129 @@
 	.mypage__main
 		.mypage__main__icon
 			.mypage__main__icon__number
-				%div
-					評価
-					%span.bold 1
-				%div
-					出品数
-					%span.bold 1
+				%img.header__bottom__rightside__mypage__content__icon{alt: "", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32"}
+					.mypageoop
+						%span.top
+							評価
+							%span.bold 0
+						%span.top
+							出品数
+							%span.bold 0
 		%section.mypage__main__box
 			%ul.mypage__main__box__notification
 				%li.active
 					%h3
-						%a{"data-toggle" => "tab", :href => ""}
+						%a{"data-toggle" => "tab"}
 							お知らせ
 				%li
 					%h3
-						%a{"data-toggle" => "tab", :href => "#mypage-tab-todo"}
+						%a{"data-toggle" => "tab"}
 							やることリスト
 			.tab-content
-				%ul#mypage-tab-notification.mypage-item-list.tab-pane.active
+				%ul.show
 					%li
-						%a.mypage-item-link{:href => "https://www.mercari.com/jp/transaction/order_status/m92918580107/"}
-							%figure
-								%img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/thumb/photos/m92918580107_1.jpg?1554820553"}/
+						%a.mypage-item-link
+							.figure_box
+								= image_tag 'mercari_icon.png', class: "red_box", width: "35", height: "35"
 							.mypage-item-body
 								.mypage-item-text
+									祝令和記念キャンペーン中！
 								%time
-									%i.icon-time
+									%i.fa.fa-clock-o
 									%span 1 日前
-							%i.icon-arrow-right
+							%i.fa.fa-arrow-circle-o-right{"aria-hidden" => "true"}
 					%li
-						%a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
-							%figure
-								%img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png"}/
+						%a.mypage-item-link
+							.figure_box
+								= image_tag 'mercari_icon.png', class: "red_box", width: "35", height: "35"
 							.mypage-item-body
-								.mypage-item-text 事務局から個別メッセージ「ログイン通知」
+								.mypage-item-text
+									事務局から個別メッセージ「ログイン通知」
 								%time
-									%i.icon-time
+									%i.fa.fa-clock-o
 									%span 1 日前
-							%i.icon-arrow-right
+							%i.fa.fa-arrow-circle-o-right{"aria-hidden" => "true"}
 					%li
-						%a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", :href => ""}
-							%figure
-								%img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png"}/
+						%a.mypage-item-link
+							.figure_box
+								= image_tag 'mercari_icon.png', class: "red_box", width: "35", height: "35"
 							.mypage-item-body
-								.mypage-item-text 《参加ボタンを押すだけ》最大P1,500がもらえるウルトラキャンペーンに参加しよう！
+								.mypage-item-text
+									《参加ボタンを押すだけ》最大P1,500がもらえるウルトラキャンペーンに参加しよう！
 								%time
-									%i.icon-time
+									%i.fa.fa-clock-o
 									%span 1 日前
-							%i.icon-arrow-right
+							%i.fa.fa-arrow-circle-o-right{"aria-hidden" => "true"}
 					%li
-						%a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", :href => ""}
-							%figure
-								%img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png"}/
+						%a.mypage-item-link
+							.figure_box
+								= image_tag 'mercari_icon.png', class: "red_box", width: "35", height: "35"
 							.mypage-item-body
-								.mypage-item-text 《本日開始！》GW半額ポイント還元や竹下メルペイ通りなど！連休はメルペイがお得
+								.mypage-item-text
+									本日開始！》GW半額ポイント還元や竹下メルペイ通りなど！連休はメルペイがお得
 								%time
-									%i.icon-time
+									%i.fa.fa-clock-o
+									%span 1 日前
+							%i.fa.fa-arrow-circle-o-right{"aria-hidden" => "true"}
+					%li
+						%a.mypage-item-link
+							.figure_box
+								= image_tag 'mercari_icon.png', class: "red_box", width: "35", height: "35"
+							.mypage-item-body
+								.mypage-item-text
+									事務局から個別メッセージ「ログイン通知」
+								%time
+									%i.fa.fa-clock-o
 									%span 2 日前
-							%i.icon-arrow-right
+							%i.fa.fa-arrow-circle-o-right{"aria-hidden" => "true"}
 					%li
-						%a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
-							%figure
-								%img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png"}/
+						%a.mypage-item-link
+							.figure_box
+								= image_tag 'mercari_icon.png', class: "red_box", width: "35", height: "35"
 							.mypage-item-body
-								.mypage-item-text 事務局から個別メッセージ「ログイン通知」
+								.mypage-item-text
+									事務局から個別メッセージ「ログイン通知」
 								%time
-									%i.icon-time
+									%i.fa.fa-clock-o
 									%span 3 日前
-							%i.icon-arrow-right
+							%i.fa.fa-arrow-circle-o-right{"aria-hidden" => "true"}
 					%li.mypage-go-list
-						%a{:href => "/jp/mypage/notification/"} 一覧を見る
-				%ul#mypage-tab-todo.mypage-item-list.tab-pane
+						= link_to new_user_session_path do
+							%h3.mypage-go-list_box
+								%a.all_list 一覧を見る
+				%ul
 					%li
-						%a.mypage-item-link{:href => "https://www.mercari.com/jp/transaction/order_status/m92918580107/"}
-							%figure
-								%img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/c!/w=240/thumb/photos/m92918580107_1.jpg?1554820553"}/
+						%a.mypage-item-link
+							.figure_box
+								= image_tag 'mercari_icon.png', class: "red_box", width: "35", height: "35"
 							.mypage-item-body
-								.mypage-item-text 
+								.mypage-item-text
+									Nothing much！
 								%time
-									%i.icon-time
-									%span 18 時間前
-							%i.icon-arrow-right
-					%li.mypage-go-list
-						%a{:href => "/jp/mypage/todo/"} 一覧を見る
-		%aside.modal{"data-close" => "modal", "data-modal" => "banner"}
+									%i.fa.fa-clock-o
+									%span 1 日前
+							%i.fa.fa-arrow-circle-o-right{"aria-hidden" => "true"}
 		%section.mypage-tab-container
-			%h2.mypage-tab-head 購入した商品
+			%h1.mypage-tab-head 購入した商品
 			%ul.mypage-tabs
 				%li.active
 					%h3
-						%a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-now"}
+						%a{"data-toggle" => "tab", :href => "	#mypage-tab-transaction-now"}
 							取引中
 				%li
 					%h3
 						%a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-old"}
 							過去の取引
-			.tab-content
-				%ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
-					%li
-						%a.mypage-item-link{:href => "https://www.mercari.com/jp/transaction/order_status/m92918580107/"}
-							%figure
-								%img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/thumb/photos/m92918580107_1.jpg?1554820553"}/
-							.mypage-item-body
-								.mypage-item-text
-									%span 受取評価をしてください
-								.mypage-item-status.bold.action-required
-									受取評価待ち
-							%i.icon-arrow-right
-					%li.mypage-go-list
-						%a{:href => "/jp/mypage/purchase/"} 一覧を見る
-				%ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
-					%li
-						%a.mypage-item-link{:href => "https://www.mercari.com/jp/transaction/order_status/m35253347142/"}
-							%figure
-								%img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/thumb/photos/m35253347142_1.jpg?1544844476"}/
-							.mypage-item-body
-								.mypage-item-text
-									%span 
-								.mypage-item-status.bold.done
-									取引完了
-							%i.icon-arrow-right
-					%li.mypage-go-list
-						%a{:href => "/jp/mypage/purchased/"} 一覧を見る
+			.tab-content_bottom
+				%ul.show
+					%li.trading
+						%a{"data-toggle" => "tab"}
+							商品がありません
+				%ul
+					%li.trading
+						%a{"data-toggle" => "tab"}
+							取引完了
+
 
 	=render 'users/user-side-bar'
 

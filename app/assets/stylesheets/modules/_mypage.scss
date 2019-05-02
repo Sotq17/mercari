@@ -63,4 +63,197 @@
 		}
 		}
 	}
+	&__main{
+		float: right;
+		width: 700px;
+    &__icon{
+			background-image: url("https://kogusoku.com/wp-content/uploads/2017/01/kogusoku_22175409-2.jpg");
+			height: 200px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			&__number{
+					align-items: center;
+					display: flex;
+					  flex-direction: column;
+				.mypageoop{
+          font-size: 25px;
+          font-weight: bold;
+				}
+			}
+		}
+		&__box{
+			&__notification{
+				height: 74px;
+				li.active{
+		      background: #fff;
+		      width: 50%;
+		      height: 74px;
+		      line-height: 74px;
+		      font-size: 16px;
+		      text-align: center;
+		      color: #565656;
+		      display: block;
+		      float: left;
+		      text-align: center;
+		      font-weight: bold;
+		      border-top: 1px solid #ea352d;
+		      cursor: auto;
+		      h3{
+		      	font-size: 16px;
+		        display: block;
+		        font-weight: bold;
+		        a{
+		        display: block;
+		        color: #333;
+		        font-size: 16px;
+		        line-height: 72px;
+		        border-right: 1px solid #eee;
+		        }
+          }
+        }
+        li{
+		      background: #e6e6e6;
+		      width: 50%;
+		      height: 74px;
+		      line-height: 74px;
+		      font-size: 16px;
+		      text-align: center;
+		      color: #565656;
+		      display: block;
+		      float: left;
+		      text-align: center;
+		      font-weight: bold;
+		      cursor: pointer;
+		      h3{
+		      	font-size: 16px;
+		        display: block;
+		        font-weight: bold;
+		        a{
+		        display: block;
+		        color: #333;
+		        font-size: 16px;
+		        line-height: 72px;
+		        border-right: 2px solid #eee;
+		        }
+          }
+        }
+			}
+			.tab-content{
+				background-color: #fff;
+				ul {
+				 display: none;
+				}
+				ul.show {
+				 display: block;
+				}
+				li{
+          border-top: 1px solid #eee;
+          a.mypage-item-link{
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+            .figure_box{
+              img.red_box{
+              }
+            }
+            .mypage-item-body{
+              color: #333333;
+              flex-grow: 0.9;
+              .fa-clock-o:before {
+                font-size: 13px;
+              }
+              time{
+              	font-size: 13px;
+              	color: #e6e6e6;
+              }
+            }
+            i.fa-arrow-circle-o-right{
+            	color: #333333;
+            }
+          }
+				}
+				li.mypage-go-list{
+					background-color: #ffffff;
+					padding: 10px;
+					height: 40px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				  h3.mypage-go-list_box{
+				  	background-color: #e6e6e6;
+				    color: #333333;
+				    width: 100%;
+				    a.all_list{
+
+					  }
+          }
+				}
+			}
+		}
+		section.mypage-tab-container{
+			background-color: #ffffff;
+			margin-top: 30px;
+			h1.mypage-tab-head{
+				font-weight: bold;
+				padding-left: 15px;
+				padding-top: 40px;
+				padding-bottom: 30px;
+				background-color: #fafafa;
+			}
+			ul.mypage-tabs{
+				display: flex;
+				justify-content: space-between;
+				height: 70px;
+				li.active{
+					background: #fff;
+					width: 50%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+		      cursor: auto;
+				  h3{
+					  a{
+							color: #333333;
+							font-weight: bold;
+						}
+				  }
+				}
+				li{
+	        background: #e6e6e6;
+			  	color: #333333;
+					width: 50%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				  cursor: pointer;
+					h3{
+					  a{
+						  color: #333333;
+							font-weight: bold;
+						}
+					}
+				}
+			}
+			.tab-content_bottom{
+				background-color: #ffffff;
+        width: 100%;
+        min-height: 350px;
+        margin: 15px auto;
+				background-image: url("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3403318254");
+			  background-repeat: no-repeat;
+			  background-position: 50% 50%;
+				ul {
+				 display: none;
+				}
+				ul.show {
+				 display: block;
+				}
+				li.trading{
+				  font-size: 19px;
+				  margin-left: 20px;
+			  }
+			}
+		}
+  }
 }
