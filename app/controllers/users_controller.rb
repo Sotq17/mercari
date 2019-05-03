@@ -15,7 +15,6 @@
 
     def exhibit
       @useritem = @user.saling_items
-      binding.pry
     end
 
     def sold
