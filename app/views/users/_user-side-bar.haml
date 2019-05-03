@@ -18,11 +18,11 @@
 					いいね一覧
 					= fa_icon("arrow-right")
 			%li
-				= link_to "", method: :get do
+				= link_to new_item_path, method: :get do
 					出品する
 					= fa_icon("arrow-right")
 			%li
-				= link_to "", method: :get do
+				= link_to exhibit_users_path, method: :get do
 					出品した商品 - 出品中
 					= fa_icon("arrow-right")
 			%li
@@ -30,7 +30,7 @@
 					出品した商品 - 取引中
 					= fa_icon("arrow-right")
 			%li
-				= link_to "", method: :get do
+				= link_to sold_users_path, method: :get do
 					出品した商品 - 取引済
 					= fa_icon("arrow-right")
 			%li
@@ -38,7 +38,7 @@
 					購入した商品 - 取引中
 					= fa_icon("arrow-right")
 			%li
-				= link_to "", method: :get do
+				= link_to purchase_users_path, method: :get do
 					購入した商品 - 取引済
 					= fa_icon("arrow-right")
 			%li

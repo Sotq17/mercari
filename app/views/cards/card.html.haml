@@ -1,19 +1,17 @@
 = render 'items/header'
 .mypage
   .mypage__main
-    .mypage__main__icon
-      .mypage__main__icon__number
-        .card__way
-          .card__way__box
-            .card__way__box__cash
-              .card__way__box__cash__bond
-                支払方法
-              .card__way__box__cash__text2
-                登録されていません
-              .card__way__box__cash__add
-                = link_to  new_card_path, method: :get do
-                  .complete
-                    クレジットカードを追加する
+    .card__way
+      .card__way__box
+        .card__way__box__cash
+          .card__way__box__cash__bond
+            支払方法
+          .card__way__box__cash__text2
+            登録されていません
+          .card__way__box__cash__add
+            = link_to  new_card_path, method: :get do
+              .complete
+                クレジットカードを追加する
   = render 'users/user-side-bar'
 
 = render 'items/bottom-banner'

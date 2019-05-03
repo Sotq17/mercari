@@ -1,0 +1,23 @@
+= render 'items/header'
+.mypage
+  .mypage__main
+    .exhibitnow
+      .exhibitnow__item
+        出品した商品
+      .exhibitnow__items
+        .exhibitnow__items__condition
+          .exhibitnow__items__condition__wh
+            = link_to exhibit_users_path, method: :get do
+              出品中
+          .exhibitnow__items__condition__bl
+            = link_to "/", method: :get do
+              取引中
+          .exhibitnow__items__condition__bl
+            = link_to "/", method: :get do
+              売却済
+        .exhibitnow__items__pd
+
+  = render 'users/user-side-bar'
+
+= render 'items/bottom-banner'
+= render 'items/footer'

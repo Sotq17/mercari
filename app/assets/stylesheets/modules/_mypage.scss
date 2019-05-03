@@ -67,7 +67,8 @@
 		float: right;
 		width: 700px;
     &__icon{
-			background-image: url("https://kogusoku.com/wp-content/uploads/2017/01/kogusoku_22175409-2.jpg");
+			background-image: url(https://graphicburger.com/wp-content/uploads/2013/10/Bokeh-600.jpg);
+			background-size:  700px;
 			height: 200px;
 			display: flex;
 			align-items: center;
@@ -241,6 +242,7 @@
         min-height: 350px;
         margin: 15px auto;
 				background-image: url("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3403318254");
+				background-size: 200px 200px;
 			  background-repeat: no-repeat;
 			  background-position: 50% 50%;
 				ul {

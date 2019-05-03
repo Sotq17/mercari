@@ -13,6 +13,17 @@
     def edit
     end
 
+    def exhibit
+      @useritem = @user.saling_items
+      binding.pry
+    end
+
+    def sold
+    end
+
+    def purchase
+    end
+
     private
     def set_search_items
       @search = Item.ransack(params[:q])

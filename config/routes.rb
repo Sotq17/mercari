@@ -2,7 +2,10 @@ Rails.application.routes.draw do
     devise_for :users
     resources :users, only: [:show, :edit] do
       collection do
-        get 'signout', to: 'users#signout'
+        get 'signout',  to: 'users#signout'
+        get 'exhibit',  to: 'users#exhibit', as: :exhibit
+        get 'sold'   ,  to: 'users#sold', as: :sold
+        get 'purchase', to: 'users#purchase', as: :purchase
       end
     end
 
