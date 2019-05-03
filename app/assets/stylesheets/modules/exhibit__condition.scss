@@ -1,0 +1,52 @@
+.exhibitnow{
+  width: 700px;
+  background: #fff;
+  &__item{
+    padding: 0 16px;
+    background: #fafafa;
+    font-size: 16px;
+    line-height: 72px;
+    font-weight: bold;
+  }
+  &__items{
+	&__condition{
+		background: #eee;
+		display: flex;
+		font-size: 16px;
+		height: 74px;
+		text-align: center;
+		vertical-align: top;
+
+	  &__wh{
+	  	background: #fff;
+        border-top: 2px solid #ea352d;
+        font-weight: bold;
+        text-decoration: none;
+        width: 233px;
+        line-height: 74px;
+        a{
+        	color: black;
+        }
+	  }
+	  &__bl{
+	  	font-weight: bold;
+        text-decoration: none;
+        width: 233px;
+        line-height: 74px;
+        a{
+        	color: black;
+        }
+	  }
+	}
+  &__pd{
+  	background-color: #ffffff;
+    width: 100%;
+    min-height: 350px;
+    margin: 15px auto;
+    background-image: url("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3403318254");
+	background-size: 200px 200px;
+	background-repeat: no-repeat;
+    background-position: 50% 50%;
+  }
+  }
+}

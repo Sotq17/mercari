@@ -3,6 +3,7 @@ class CardsController < ApplicationController
   before_action  :set_search_items, only: [:show, :new, :card]
   before_action  :set_parents, only: [:show, :new, :card]
   before_action  :set_card
+  before_action  :user_find
 
   def new
     card = Card.where(user_id: current_user.id)
@@ -60,6 +61,10 @@ class CardsController < ApplicationController
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
   end
+
+  def user_find
+      @user = User.find(current_user.id)
+    end
 
   def set_card
     @card = Card.where(user_id: current_user.id)

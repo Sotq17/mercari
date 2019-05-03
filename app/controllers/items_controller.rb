@@ -47,36 +47,50 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to root_path
+    if @item.user_id == current_user.id
+      @item.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
 
   def edit
+    @items = @item.photos.where(item_id: [params[:id]])
     @photo = @item.photos.length
-    10-@photo.times{@item.photos.build}
+    @categories = @item.item_categories.where(item_id: [params[:id]])
+    @length = 10 - @items.length
+    @length.times{@items.build}
     @parents = Category.all.order("id ASC").limit(13)
-    3.times{@item.item_categories.build}
-    @item.item_categories.build
+    3.times{@categories.build}
   end
 
 
   def update
-    @item.update(create_params)
+    if @item.user_id == current_user.id
+      @item.update(update_params)
       redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
 
   def buy
     render template: "purchases/index"
   end
 
-  def item_find
-    @item = Item.find(params[:id])
-  end
-
 
   private
   def create_params
-      params.require(:item).permit(:name, :description, :price, :size_id, :state_id, :fee_side_id, :way_id, :region_id, :day_id, :category_ids, photos_attributes: [:image]).merge(user_id: current_user.id)
+      params.require(:item).permit(:name, :description, :price, :size_id, :state_id, :fee_side_id, :way_id, :region_id, :day_id, :category_ids, photos_attributes: [:id, :image, :_destroy]).merge(user_id: current_user.id)
+  end
+
+  def update_params
+      params.require(:item).permit(:name, :description, :price, :size_id, :state_id, :fee_side_id, :way_id, :region_id, :day_id, photos_attributes: [:id, :image, :_destroy]).merge(user_id: current_user.id)
+  end
+
+  def item_find
+    @item = Item.find(params[:id])
   end
 
   def set_parents
