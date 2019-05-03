@@ -9,7 +9,6 @@ class ItemsController < ApplicationController
     @items = Item.order("id DESC").limit(4).includes(:photos)
     @parents = Category.all.order("id ASC").limit(13)
     @pickup_categories = Category.all.order("id ASC").limit(4)
-    # @ladies_item = Item.whe(category_id: 1).order("created_at DESC").limit(4)
   end
 
   def search
@@ -100,6 +99,10 @@ class ItemsController < ApplicationController
 
   def set_search_items
     @search = Item.ransack(params[:q])
+    # binding.pry
+    # @result = @search.category
+    # @results = Item.where(category_id: @result.id)
     @search_items = @search.result.includes(:categories).order("id DESC").page(params[:page]).per(15)
+    # @search_items = @search.result.order("created_at DESC").page(params[:page]).per(15)
   end
 end

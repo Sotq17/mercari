@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
 	before_action  :set_parents, only: [:index, :show]
-	before_action  :set_search_items
+	before_action  :set_search_items, only: [:index, :show]
 
 	def index
 	  @parents = Category.all.order("id ASC").limit(13)
@@ -37,5 +37,5 @@ end
 private
 def set_search_items
 	@search = Item.ransack(params[:q])
-	@search_items = @search.result.order("id DESC").page(params[:page]).per(15)
+	@search_items = @search.result.order("created_at DESC").page(params[:page]).per(15)
 end

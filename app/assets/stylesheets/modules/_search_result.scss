@@ -70,3 +70,34 @@
 		}
 	}
 }
+
+.pagination{
+	padding: 50px 120px 0;
+	.first{
+		a{
+		}
+	}
+	.prev{
+		a{
+		}
+	}
+	.page{
+		margin:0 5px;
+		a{
+		}
+	}
+	.page.current{
+		a{}
+		color: #fff;
+		background: #ea352d;
+	}
+
+	.next{
+		a{
+		}
+	}
+	.last{
+		a{
+		}
+	}
+}
